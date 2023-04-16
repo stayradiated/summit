@@ -1,5 +1,6 @@
 import { ConnectStravaButton } from "./connect-strava-button"
 import { Logo } from './logo'
+import { ClientOnly } from "remix-utils"
 
 const LandingPage = () => {
   return (
@@ -24,7 +25,9 @@ With Summit, you can:
 <p>Don't let your hard-earned Wainwrights go uncounted. Connect to Summit today and start tracking your progress like a pro!</p>
 
       <div className='actions'>
-        <ConnectStravaButton />
+        <ClientOnly>
+          {() => <ConnectStravaButton />}
+        </ClientOnly>
       </div>
     </div>
   )
