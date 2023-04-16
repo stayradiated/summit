@@ -888,6 +888,13 @@ body > footer {
 .header {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+}
+
+@media(min-width: 600px) {
+  .header {
+    flex-direction: row;
+  }
 }
 
 .logo-container {

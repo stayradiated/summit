@@ -1,15 +1,15 @@
-import { useLoaderData } from "@remix-run/react"
+import { useLoaderData } from "@remix-run/react";
 import type { LoaderFunction, LinksFunction } from "@remix-run/node"
-import { redirect } from "@remix-run/node"
-import { decode as decodePolyline } from '@mapbox/polyline'
+import { json, redirect } from "@remix-run/node"
+import useSWRInfinite from 'swr/infinite'
+import { useEffect } from "react";
 
 import { getSession, destroySessionHeaders } from "~/cookie.server"
-import { newLineString, newPoint, pointInsideLakeDistrict, distanceFromLine } from '~/turf.server'
-import { wainwrightList, wainwrightRecord, Wainwright } from "~/data"
-import { fetchActivityList } from '~/strava'
 import { ActivityList } from '~/components/activity-list'
 import { Logo } from '~/components/logo'
 import { WainwrightCount } from "~/components/wainwright-count"
+import type { Wainwright } from "~/data"
+import { wainwrightRecord } from "~/data"
 
 import styles from '~/styles.css'
 
@@ -17,21 +17,13 @@ export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: styles }];
 }
 
-type Activity = {
-  name: string
-  type: string
-  date: string
-  wainwrights: Wainwright[]
-}
-
 type LoaderData = {
   athlete: {
     username: string,
     firstName: string,
     lastName: string,
-  }
-  activities: Activity[]
-  wainwrights: Wainwright[]
+  },
+  wainwrightRecord: Record<string, Wainwright>
 }
 
 export const loader: LoaderFunction = async ({ request }) => {
@@ -44,67 +36,74 @@ export const loader: LoaderFunction = async ({ request }) => {
     })
   }
 
-  const stravaActivityList = await fetchActivityList(accessToken, 1)
+  return json({ athlete, wainwrightRecord })
+}
 
-  const relevantActivities = stravaActivityList.items.filter((activity) => {
-    const startPoint = newPoint(activity.start_latlng)
-    const endPoint = newPoint(activity.end_latlng)
-    return pointInsideLakeDistrict(startPoint) || pointInsideLakeDistrict(endPoint)
-  })
+const getKey = (pageIndex: number, previousPageData: unknown[]) => {
+  if (previousPageData && !previousPageData.length) return null
+  return `/api/activities?page=${pageIndex+1}`
+}
 
-  const activities: Activity[] = relevantActivities.map((activity) => {
-    const activityTrack = newLineString(decodePolyline(activity.map.summary_polyline))
-
-    const list = wainwrightList.map((wainwright) => {
-      const distance = distanceFromLine(activityTrack, newPoint(wainwright.coords))
-      return { id: wainwright.id, distance }
-    })
-    const baggedList = list.filter((item) => {
-      return item.distance <= 0.05
-    })
-    const baggedWainwrightList = baggedList.map((item) => {
-      return wainwrightRecord[item.id]
-    })
-
-    return { name: activity.name, type: activity.type, date: activity.start_date, wainwrights: baggedWainwrightList }
-  })
-
-  const uniqueWainwrightIdSet = [...new Set(activities.flatMap((activity) => {
-    return activity.wainwrights.map((wainwright) => {
-      return wainwright.id
-    })
-  }))]
-  const wainwrights = uniqueWainwrightIdSet.map((id) => {
-    return wainwrightRecord[id]
-  })
-
-  return { athlete, activities, wainwrights }
+const fetcher = async (url: string) => {
+  const response = await fetch(url)
+  return response.json()
 }
 
 export default function route () {
-  const { athlete, wainwrights, activities } = useLoaderData<LoaderData>()
+  const { athlete, wainwrightRecord } = useLoaderData<LoaderData>()
+
+  const swr = useSWRInfinite(getKey, fetcher, {
+    parallel: true,
+    initialSize: 10,
+  })
+  const { isLoading, data, size, setSize } = swr
+  const isLoadingMore = (data??[]).length < size
+
+  const handleLoadMore = () => {
+    setSize(size + 10)
+  }
+
+  const activityList = (data??[]).flatMap((list) => {
+    return list.filter(Boolean)
+  })
+  const wainwrightList = [...new Set(activityList.flatMap((activity) => {
+    return activity.wainwrightIds
+  }))].map((id) => wainwrightRecord[id])
 
   return (
     <div>
       <header className='header'>
-
         <div className='logo-container-small'>
           <Logo />
           <h1 className='app-title'>Summit</h1>
         </div>
 
-        <p className='session'>Logged in as {athlete.firstName} {athlete.lastName}.
+        <div className='session'>
+          <span>Logged in as {athlete.firstName} {athlete.lastName}.</span>
           <form action="/logout" method="post" className='logout-form'>
             <button type="submit" className="logout-button">
               Logout
             </button>
           </form>
-        </p>
-
+        </div>
       </header>
 
-      <WainwrightCount wainwrights={wainwrights} />
-      <ActivityList activities={activities} />
+  {
+  isLoading
+  ? (<p>Fetching data from Strava, please wait...</p>)
+  : (
+  <>
+      <p>Fetched {(data??[]).flat().length} activities from Strava.
+        <button onClick={handleLoadMore} disabled={isLoadingMore}>
+        { isLoadingMore ? 'Loading...' : 'Fetch More' }
+        </button>
+      </p>
+
+      <WainwrightCount wainwrights={wainwrightList} />
+      <ActivityList activities={activityList} wainwrightRecord={wainwrightRecord} />
+      </>
+      )}
     </div>
   )
 }
+

@@ -27,7 +27,9 @@ specifiers:
   react: 18.2.0
   react-dom: 18.2.0
   remix-utils: 6.1.0
+  swr: 2.1.3
   typescript: 5.0.4
+  zod: 3.21.4
 
 dependencies:
   '@mapbox/polyline': 1.2.0
@@ -47,7 +49,9 @@ dependencies:
   p-map: 5.5.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  remix-utils: 6.1.0_rznjsr4be2wzrpnmn55dv7mjyy
+  remix-utils: 6.1.0_ziqor52ky2z5wr42vze5m44ne4
+  swr: 2.1.3_react@18.2.0
+  zod: 3.21.4
 
 devDependencies:
   '@remix-run/dev': 1.15.0_@remix-run+serve@1.15.0
@@ -6994,7 +6998,7 @@ packages:
       unified: 10.1.2
     dev: true
 
-  /remix-utils/6.1.0_rznjsr4be2wzrpnmn55dv7mjyy:
+  /remix-utils/6.1.0_ziqor52ky2z5wr42vze5m44ne4:
     resolution: {integrity: sha512-OEuoSEBjtkxiscaTdabq/F9jnyOfygeLMpvF0b6RTH07RWUyQjiSX4aKenk4jhEnxUTqUmK9KC2GUvZo/HjPCA==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -7010,6 +7014,7 @@ packages:
       schema-dts: 1.1.2_typescript@5.0.4
       type-fest: 2.19.0
       uuid: 8.3.2
+      zod: 3.21.4
     transitivePeerDependencies:
       - typescript
     dev: false
@@ -7487,6 +7492,15 @@ packages:
   /supports-preserve-symlinks-flag/1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  /swr/2.1.3_react@18.2.0:
+    resolution: {integrity: sha512-g3ApxIM4Fjbd6vvEAlW60hJlKcYxHb+wtehogTygrh6Jsw7wNagv9m4Oj5Gq6zvvZw0tcyhVGL9L0oISvl3sUw==}
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
 
   /synckit/0.8.5:
     resolution: {integrity: sha512-L1dapNV6vu2s/4Sputv8xGsCdAVlb5nRDMFU/E27D44l5U6cw1g0dGd45uLc+OXjNMmF4ntiMdCimzcjFKQI8Q==}
@@ -8143,6 +8157,10 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zod/3.21.4:
+    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
+    dev: false
 
   /zwitch/2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}

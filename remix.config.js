@@ -12,7 +12,11 @@ module.exports = {
     v2_routeConvention: true,
   },
   serverDependenciesToBundle: [
-    'p-map', 'aggregate-error', 'indent-string', 'clean-stack',
-    'escape-string-regexp'
+    'p-map',
+      'aggregate-error',
+      'indent-string', 
+      'clean-stack',
+
+    'escape-string-regexp',
   ]
 };

@@ -5,38 +5,43 @@ type Activity = {
   name: string
   type: string
   date: string
-  wainwrights: Wainwright[]
+  wainwrightIds: number[]
 }
 
 type ActivityListProps = {
   activities: Activity[]
+  wainwrightRecord: Record<string, Wainwright>
 }
 
 const ActivityList = (props: ActivityListProps) => {
-  const { activities } = props
+  const { activities, wainwrightRecord } = props
 
   return (
     <div>
       <h3>History</h3>
 
-      {activities.map((activity) => {
-      if (activity.wainwrights.length <= 0) {
+      {activities.map((activity, index) => {
+      if (activity.wainwrightIds.length <= 0) {
         return null
       }
 
       const date = format(new Date(activity.date), 'do LLLL yyyy')
 
       return (
-        <div className='activity-container'>
+        <div className='activity-container' key={index}>
           <h4 className='activity-title'>{activity.name}</h4>
           <p className='activity-date'>{date}</p>
 
           <ul>
-            {activity.wainwrights.map((wainwright) => (
-              <li>{wainwright.name}
-              <span className='badge'>{wainwright.area}</span>
-              <span className='badge'>{wainwright.height}</span></li>
-            ))}
+            {activity.wainwrightIds.map((id, index) => {
+              const wainwright = wainwrightRecord[id]
+              return (
+                <li key={index}>{wainwright.name}
+                  <span className='badge'>{wainwright.area}</span>
+                  <span className='badge'>{wainwright.height}</span>
+                </li>
+              )
+            })}
           </ul>
         </div>
       )
