@@ -12,8 +12,39 @@ type MyMapProps = {
   markers: MarkerConfig[]
 }
 
-const icon = divIcon({ className: 'map-marker-icon' })
-const iconBagged = divIcon({ className: 'map-marker-icon-bagged' })
+const unbaggedIcon = divIcon({ className: 'map-marker-icon' })
+const defaultIcon = divIcon({ className: 'map-marker-icon-bagged' })
+const centralFells = divIcon({
+  className: 'map-marker-icon-bagged map-marker-icon-central-fells',
+})
+const nothernFells = divIcon({
+  className: 'map-marker-icon-bagged map-marker-icon-northern-fells',
+})
+const easternFells = divIcon({
+  className: 'map-marker-icon-bagged map-marker-icon-eastern-fells',
+})
+const farEasternFells = divIcon({
+  className: 'map-marker-icon-bagged map-marker-icon-far-eastern-fells',
+})
+const southernFells = divIcon({
+  className: 'map-marker-icon-bagged map-marker-icon-southern-fells',
+})
+const westernFells = divIcon({
+  className: 'map-marker-icon-bagged map-marker-icon-western-fells',
+})
+const northWesternFells = divIcon({
+  className: 'map-marker-icon-bagged map-marker-icon-north-western-fells',
+})
+
+const icon = {
+  'Central Fells': centralFells,
+  'Northern Fells': nothernFells,
+  'Eastern Fells': easternFells,
+  'Far Eastern Fells': farEasternFells,
+  'Southern Fells': southernFells,
+  'Western Fells': westernFells,
+  'North Western Fells': northWesternFells,
+}
 
 const MyMap = (props: MyMapProps) => {
   const { markers = [] } = props
@@ -38,7 +69,9 @@ const MyMap = (props: MyMapProps) => {
           <Marker
             key={index}
             position={marker.position}
-            icon={marker.bagged ? iconBagged : icon}
+            icon={
+              marker.bagged ? icon[marker.area] ?? defaultIcon : unbaggedIcon
+            }
           >
             <Popup>{marker.title}</Popup>
           </Marker>

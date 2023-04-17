@@ -1057,19 +1057,46 @@ body > footer {
 
 
 .map-container {
-  height: 400px;
+  height: 500px;
 }
 
 .map-marker-icon {
   width: 15px !important; 
   height: 15px !important; 
-  background: #5B8E7Dcc;
+  background: #FFFFFFaa;
   border-radius: 100%;
+  margin-left: -7.5px;
+  margin-top: -7.5px;
+  border: 2px solid #333333aa;
 }
 .map-marker-icon-bagged {
   width: 0 !important; 
   height: 0 !important; 
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-bottom: 26px solid #3C91E6cc;
+  border-bottom: 26px solid #3C91E6;
+  margin-left: -7.5px;
+  margin-top: -7.5px;
+  opacity: 0.9;
+}
+.map-marker-icon-central-fells {
+  border-bottom-color: #0e479e;
+}
+.map-marker-icon-northern-fells {
+  border-bottom-color: #562e2e;
+}
+.map-marker-icon-eastern-fells {
+  border-bottom-color: #626d43;
+}
+.map-marker-icon-far-eastern-fells {
+  border-bottom-color: #c31820;
+}
+.map-marker-icon-southern-fells {
+  border-bottom-color: #ed771d;
+}
+.map-marker-icon-western-fells {
+  border-bottom-color: #294f3a;
+}
+.map-marker-icon-north-western-fells {
+  border-bottom-color: #d99c4b;
 }

@@ -49,11 +49,18 @@ export default function route() {
   const { isLoading, fullActivityList, activityList, baggedWainwrightIds } =
     useWainwrights()
 
-  const wainwrightMarkers = wainwrightList.map((wainwright) => ({
-    title: wainwright.name,
-    position: wainwright.coords,
-    bagged: baggedWainwrightIds.includes(wainwright.id),
-  }))
+  const wainwrightMarkers = wainwrightList
+    .map((wainwright) => ({
+      title: `${wainwright.name} (${wainwright.area})`,
+      position: wainwright.coords,
+      area: wainwright.area,
+      bagged: baggedWainwrightIds.includes(wainwright.id),
+    }))
+    .sort((a, b) => {
+      return (a.bagged ? 1 : 0) - (b.bagged ? 1 : 0)
+    })
+
+  console.log({ wainwrightMarkers })
 
   const handleLogout = () => {
     destroyActivityList()
