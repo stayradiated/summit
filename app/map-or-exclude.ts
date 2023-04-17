@@ -1,4 +1,4 @@
-const EXCLUDE = Symbol("EXCLUDE")
+const EXCLUDE = Symbol('EXCLUDE')
 
 const mapOrExclude = <Input, Output>(
   list: Input[],

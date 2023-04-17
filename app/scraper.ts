@@ -4,7 +4,7 @@ import cheerio from 'cheerio'
 const latlonRegex = /lat=(-?\d+\.\d+)&lon=(-?\d+\.\d+)/
 
 const getLatLon = (text: string) => {
-  const result = text.match(latlonRegex)
+  const result = latlonRegex.exec(text)
   if (!result) {
     throw new Error('Could not find the x')
   }
@@ -16,7 +16,7 @@ const getLatLon = (text: string) => {
 }
 
 const scrapeHill = async (url: string) => {
-  const response = await fetch(url) 
+  const response = await fetch(url)
   const text = await response.text()
 
   const $ = cheerio.load(text)
@@ -28,7 +28,9 @@ const scrapeHill = async (url: string) => {
   const height = $('td:contains("Height:")').next().text()
   const gridRef = $('td:contains("Grid Ref:")').next().find('a').eq(0).text()
   const notes = $('td:contains("Notes:")').next().text()
-  const id = Number.parseInt($('meta[property="og:url"]').attr('content')!.match(/\d+/)![0]!)
+  const id = Number.parseInt(
+    /\d+/.exec($('meta[property="og:url"]').attr('content')!)![0]!,
+  )
 
   return {
     id,
@@ -44,12 +46,16 @@ const scrapeHill = async (url: string) => {
   }
 }
 
-const scrapeHillList = (urlList: string[]) => {
-  return pMap(urlList, async (url) => {
-    const hill = await scrapeHill(url)
-    console.log(hill)
-    return hill
-  }, { concurrency: 5 })
+const scrapeHillList = async (urlList: string[]) => {
+  return pMap(
+    urlList,
+    async (url) => {
+      const hill = await scrapeHill(url)
+      console.log(hill)
+      return hill
+    },
+    { concurrency: 5 },
+  )
 }
 
 export { scrapeHillList }

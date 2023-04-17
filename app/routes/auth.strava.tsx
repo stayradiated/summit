@@ -1,7 +1,6 @@
 import type { LoaderFunction } from '@remix-run/node'
 import { redirect } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
-
 import { getSession, setSessionHeaders } from '~/cookie.server'
 import { STRAVA_CLIENT_ID, STRAVA_CLIENT_SECRET } from '~/env.server'
 
@@ -14,9 +13,9 @@ type LoaderData = {
 type ErrorResponse = {
   message: string
   errors: Array<{
-    resource:string,
-    field:string,
-    code:string,
+    resource: string
+    field: string
+    code: string
   }>
 }
 
@@ -51,11 +50,22 @@ type ValidResponse = {
 }
 
 const hasErrors = (data: unknown): data is ErrorResponse => {
-  return data !== null && typeof data === 'object' && 'messsage' in data && 'errors' in data
+  return (
+    data !== null &&
+    typeof data === 'object' &&
+    'messsage' in data &&
+    'errors' in data
+  )
 }
 
 const isValidResponse = (data: unknown): data is ValidResponse => {
-  return data !== null && typeof data === 'object' && 'access_token' in data && 'refresh_token' in data && 'expires_at' in data
+  return (
+    data !== null &&
+    typeof data === 'object' &&
+    'access_token' in data &&
+    'refresh_token' in data &&
+    'expires_at' in data
+  )
 }
 
 export const loader: LoaderFunction = async ({ request }) => {
@@ -65,7 +75,7 @@ export const loader: LoaderFunction = async ({ request }) => {
   const response = await fetch(OAUTH_TOKEN_URL, {
     method: 'POST',
     headers: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
     },
     body: JSON.stringify({
       client_id: STRAVA_CLIENT_ID,
@@ -75,7 +85,7 @@ export const loader: LoaderFunction = async ({ request }) => {
     }),
   })
 
-  const responseJson = await response.json() as unknown
+  const responseJson = (await response.json()) as unknown
 
   if (hasErrors(responseJson)) {
     return { errorMessage: responseJson.message }
@@ -95,11 +105,11 @@ export const loader: LoaderFunction = async ({ request }) => {
   })
 
   return redirect('/', {
-    headers: await setSessionHeaders(session)
+    headers: await setSessionHeaders(session),
   })
 }
 
-export default function () {
+export default function route() {
   const { errorMessage } = useLoaderData<LoaderData>()
 
   return <h1>⚠️ {errorMessage} ⚠️</h1>

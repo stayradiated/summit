@@ -1,5 +1,5 @@
-import { Wainwright } from "~/data"
 import { format } from 'date-fns'
+import { type Wainwright } from '~/data'
 
 type Activity = {
   name: string
@@ -21,30 +21,31 @@ const ActivityList = (props: ActivityListProps) => {
       <h3>History</h3>
 
       {activities.map((activity, index) => {
-      if (activity.wainwrightIds.length <= 0) {
-        return null
-      }
+        if (activity.wainwrightIds.length <= 0) {
+          return null
+        }
 
-      const date = format(new Date(activity.date), 'do LLLL yyyy')
+        const date = format(new Date(activity.date), 'do LLLL yyyy')
 
-      return (
-        <div className='activity-container' key={index}>
-          <h4 className='activity-title'>{activity.name}</h4>
-          <p className='activity-date'>{date}</p>
+        return (
+          <div className="activity-container" key={index}>
+            <h4 className="activity-title">{activity.name}</h4>
+            <p className="activity-date">{date}</p>
 
-          <ul>
-            {activity.wainwrightIds.map((id, index) => {
-              const wainwright = wainwrightRecord[id]
-              return (
-                <li key={index}>{wainwright.name}
-                  <span className='badge'>{wainwright.area}</span>
-                  <span className='badge'>{wainwright.height}</span>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-      )
+            <ul>
+              {activity.wainwrightIds.map((id, index) => {
+                const wainwright = wainwrightRecord[id]
+                return (
+                  <li key={index}>
+                    {wainwright.name}
+                    <span className="badge">{wainwright.area}</span>
+                    <span className="badge">{wainwright.height}</span>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        )
       })}
     </div>
   )
