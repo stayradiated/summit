@@ -2,19 +2,23 @@ import { useLoaderData } from '@remix-run/react'
 import type { LoaderFunction, LinksFunction } from '@remix-run/node'
 import { json, redirect } from '@remix-run/node'
 import { ClientOnly } from 'remix-utils'
+import leafletStyles from 'leaflet/dist/leaflet.css'
 import { getSession, destroySessionHeaders } from '~/cookie.server'
 import { ActivityList } from '~/components/activity-list'
 import { Logo } from '~/components/logo'
 import { WainwrightCount } from '~/components/wainwright-count'
 import type { Wainwright } from '~/data'
-import type { RelevantActivity } from '~/strava'
-import { wainwrightRecord } from '~/data'
+import { wainwrightList, wainwrightRecord } from '~/data'
 import styles from '~/styles.css'
-import { useActivityCache } from '~/localstorage'
 import { destroyActivityList } from '~/localstorage'
+import { useWainwrights } from '~/hooks/use-wainwrights'
+import { MyMap } from '~/components/map.client'
 
 export const links: LinksFunction = () => {
-  return [{ rel: 'stylesheet', href: styles }]
+  return [
+    { rel: 'stylesheet', href: styles },
+    { rel: 'stylesheet', href: leafletStyles },
+  ]
 }
 
 type LoaderData = {
@@ -42,20 +46,14 @@ export const loader: LoaderFunction = async ({ request }) => {
 export default function route() {
   const { athlete, wainwrightRecord } = useLoaderData<LoaderData>()
 
-  const { store, isLoading } = useActivityCache()
+  const { isLoading, fullActivityList, activityList, baggedWainwrightIds } =
+    useWainwrights()
 
-  const data = store.activityIds.map((id) => store.activityRecord[id])
-
-  const activityList = data.filter(
-    (item): item is RelevantActivity => item.isRelevant,
-  )
-  const wainwrightList = [
-    ...new Set(
-      activityList.flatMap((activity) => {
-        return activity.wainwrightIds
-      }),
-    ),
-  ].map((id) => wainwrightRecord[id])
+  const wainwrightMarkers = wainwrightList.map((wainwright) => ({
+    title: wainwright.name,
+    position: wainwright.coords,
+    bagged: baggedWainwrightIds.includes(wainwright.id),
+  }))
 
   const handleLogout = () => {
     destroyActivityList()
@@ -74,21 +72,33 @@ export default function route() {
             Logged in as {athlete.firstName} {athlete.lastName}.
           </span>
           <form action="/logout" method="post" className="logout-form">
-            <button type="submit" className="logout-button" onClick={handleLogout}>
+            <button
+              type="submit"
+              className="logout-button"
+              onClick={handleLogout}
+            >
               Logout
             </button>
           </form>
         </div>
       </header>
 
-      {isLoading && <p className='loading-message'>
-<span className="timer-loader"/>Fetching data from Strava...</p>}
+      {isLoading && (
+        <p className="loading-message">
+          <span className="timer-loader" />
+          Fetching data from Strava...
+        </p>
+      )}
 
       <ClientOnly>
         {() => (
           <>
-            <p>Scanned {data.length} activities from Strava.</p>
-            <WainwrightCount wainwrights={wainwrightList} />
+            <p>Scanned {fullActivityList.length} activities from Strava.</p>
+            <WainwrightCount wainwrights={baggedWainwrightIds} />
+
+            <h3>Map</h3>
+            <MyMap markers={wainwrightMarkers} />
+
             <ActivityList
               activities={activityList}
               wainwrightRecord={wainwrightRecord}

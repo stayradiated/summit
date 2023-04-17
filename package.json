@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@mapbox/polyline": "1.2.0",
+    "@react-leaflet/core": "2.1.0",
     "@remix-run/express": "1.15.0",
     "@remix-run/node": "1.15.0",
     "@remix-run/react": "1.15.0",
@@ -21,26 +22,28 @@
     "date-fns": "2.29.3",
     "express": "4.18.2",
     "isbot": "3.6.8",
+    "leaflet": "1.9.3",
     "morgan": "1.10.0",
     "p-map": "5.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-leaflet": "4.2.1",
     "remix-utils": "6.1.0",
-    "swr": "2.1.3",
-    "xo": "0.54.1",
     "zod": "3.21.4"
   },
   "devDependencies": {
     "@remix-run/dev": "1.15.0",
     "@remix-run/eslint-config": "1.15.0",
     "@remix-run/serve": "1.15.0",
+    "@types/leaflet": "1.9.3",
     "@types/mapbox__polyline": "1.0.2",
     "@types/node": "18.15.11",
-    "@types/react": "18.0.35",
+    "@types/react": "18.0.37",
     "@types/react-dom": "18.0.11",
     "@vercel/ncc": "0.36.1",
     "eslint": "8.38.0",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "xo": "0.54.1"
   },
   "engines": {
     "node": ">=14"

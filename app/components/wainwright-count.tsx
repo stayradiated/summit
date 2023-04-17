@@ -2,7 +2,7 @@ import type { Wainwright } from '~/data'
 import { wainwrightList } from '~/data'
 
 type WainwrightCountProps = {
-  wainwrights: Wainwright[]
+  wainwrights: number[]
 }
 
 const WainwrightCount = (props: WainwrightCountProps) => {

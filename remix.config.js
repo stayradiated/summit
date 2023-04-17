@@ -18,5 +18,8 @@ module.exports = {
       'clean-stack',
 
     'escape-string-regexp',
+
+    'react-leaflet',
+      '@react-leaflet/core',
   ]
 };

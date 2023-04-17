@@ -949,7 +949,7 @@ body > footer {
   border: none;
   padding: 0.5em 1em;
 }
-.logout-button: hover {
+.logout-button:hover {
   text-decoration: underline;
   background: none;
 }
@@ -1053,4 +1053,23 @@ body > footer {
   height: 8px;
   left: 7.5px;
   top: 7.5px;
+}
+
+
+.map-container {
+  height: 400px;
+}
+
+.map-marker-icon {
+  width: 15px !important; 
+  height: 15px !important; 
+  background: #5B8E7Dcc;
+  border-radius: 100%;
+}
+.map-marker-icon-bagged {
+  width: 0 !important; 
+  height: 0 !important; 
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 26px solid #3C91E6cc;
 }

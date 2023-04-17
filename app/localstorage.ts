@@ -19,7 +19,7 @@ const getActivityList = (): Store | Error => {
 
     return {
       activityRecord: {},
-      activityIds: []
+      activityIds: [],
     }
   })
 }
@@ -62,7 +62,11 @@ type FinishLoadingAction = {
   type: 'FINISH_LOADING'
 }
 
-type Action = FetchStartAction | FetchEndAction | NextPageAction | FinishLoadingAction
+type Action =
+  | FetchStartAction
+  | FetchEndAction
+  | NextPageAction
+  | FinishLoadingAction
 
 const fetchPage = async (
   pageId: number,
@@ -98,7 +102,7 @@ const useActivityCache = () => {
           pageRecord: {
             ...state.pageRecord,
             [action.page]: 'LOADING',
-          }
+          },
         }
       }
 
@@ -120,7 +124,7 @@ const useActivityCache = () => {
           pageRecord: {
             ...state.pageRecord,
             [action.page]: 'DONE',
-          }
+          },
         }
       }
 
@@ -192,4 +196,9 @@ const useActivityCache = () => {
   return state
 }
 
-export { getActivityList, setActivityList, useActivityCache, destroyActivityList }
+export {
+  getActivityList,
+  setActivityList,
+  useActivityCache,
+  destroyActivityList,
+}
