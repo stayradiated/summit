@@ -1,24 +1,19 @@
 import type { LoaderFunction, LinksFunction } from '@remix-run/node'
 import { redirect } from '@remix-run/node'
-import { ClientOnly } from 'remix-utils'
 import leafletStyles from 'leaflet/dist/leaflet.css'
 import type { Hill } from '@prisma/client'
 import { superjson, useSuperLoaderData } from '~/superjson'
 import { getSession } from '~/cookie.server'
-import { ActivityList } from '~/components/activity-list'
 import { Logo } from '~/components/logo'
-import { WainwrightCount } from '~/components/wainwright-count'
 import styles from '~/styles.css'
-import { MyMap } from '~/components/map.client'
-import type { MarkerConfig } from '~/components/map.client'
 import {
   getAthlete,
   getAthleteActivityList,
   getHills,
   HillClassification,
-  type ActivityWithAscentList,
 } from '~/core'
-import { recordFromList } from '~/core/utils'
+import type { ActivityWithAscentList } from '~/core'
+import { BadgeList } from '~/components/badge-list'
 
 export const links: LinksFunction = () => {
   return [
@@ -78,21 +73,6 @@ export default function route() {
     ),
   ]
 
-  const hillRecord = recordFromList(hillList, (item) => item.id)
-
-  const hillMarkers = hillList
-    .map(
-      (hill): MarkerConfig => ({
-        title: `${hill.name} (${hill.area})`,
-        area: hill.area,
-        position: [hill.latitude, hill.longitude],
-        bagged: baggedHillIds.includes(hill.id),
-      }),
-    )
-    .sort((a, b) => {
-      return (a.bagged ? 1 : 0) - (b.bagged ? 1 : 0)
-    })
-
   return (
     <div>
       <header className="header">
@@ -113,22 +93,7 @@ export default function route() {
         </div>
       </header>
 
-      <p>Imported {activityList.length} activities from Strava.</p>
-      <WainwrightCount
-        baggedHillIds={baggedHillIds}
-        totalHillCount={Object.keys(hillRecord).length}
-      />
-
-      <ClientOnly>
-        {() => (
-          <>
-            <h3>Map</h3>
-            <MyMap markers={hillMarkers} />
-          </>
-        )}
-      </ClientOnly>
-
-      <ActivityList activities={activityList} hillRecord={hillRecord} />
+      <BadgeList hillList={hillList} baggedHillIds={baggedHillIds} />
     </div>
   )
 }

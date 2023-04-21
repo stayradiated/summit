@@ -1100,3 +1100,13 @@ body > footer {
 .map-marker-icon-north-western-fells {
   border-bottom-color: #d99c4b;
 }
+
+
+.badge-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.badge-list-item {
+  list-style-type: none;
+}
