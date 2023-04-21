@@ -39,7 +39,6 @@ type LoaderData = {
 
 export const loader: LoaderFunction = async ({ request }) => {
   const session = await getSession(request)
-  console.log(session)
   if (!session.isValid) {
     return redirect('/', {
       headers: await session.destroyHeaders(),

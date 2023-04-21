@@ -9,8 +9,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Marilyn|HuMP|Fellranger|Synge|Tump|',
     height: 447,
-    notes:
-      'ground by windshelter 7m W at NY 22507 35528 is 10cm lower although loose rocks are higher; cairn 14m E at NY 22529 35525 is 30cm lower',
     latitude: 54.708_795,
     longitude: -3.204_188,
   },
@@ -22,7 +20,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 483,
-    notes: 'ground 2m SSE is highest point',
     latitude: 54.708_411,
     longitude: -3.125_313,
   },
@@ -34,7 +31,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 586,
-    notes: '',
     latitude: 54.706_42,
     longitude: -3.105_361,
   },
@@ -47,7 +43,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 658,
-    notes: 'trig point 8m N is slightly lower',
     latitude: 54.705_416,
     longitude: -3.058_742,
   },
@@ -59,8 +54,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|deleted Nuttall|',
     height: 651,
-    notes:
-      'ground within 5m radius of similar height; cairn built since Wainwright volume was published',
     latitude: 54.695_145,
     longitude: -3.100_989,
   },
@@ -72,8 +65,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dewey|sub Dodd|Fellranger|Synge|',
     height: 549.4,
-    notes:
-      'cairn is 2m higher and 65m NE of large shelter (Wainwright/Birkett summit) which is at NY 28258 33711',
     latitude: 54.693_795,
     longitude: -3.113_923,
   },
@@ -86,7 +77,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 662.3,
-    notes: '',
     latitude: 54.693_484,
     longitude: -3.022_87,
   },
@@ -99,7 +89,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Dodd|Dewey|sub HuMP|Fellranger|Synge|Tump|',
     height: 526,
-    notes: '',
     latitude: 54.689_677,
     longitude: -3.128_766,
   },
@@ -112,7 +101,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 710,
-    notes: '',
     latitude: 54.686_982,
     longitude: -3.093_322,
   },
@@ -125,7 +113,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|sub Marilyn|Fellranger|Synge|Sim|Tump|',
     height: 691,
-    notes: '',
     latitude: 54.670_77,
     longitude: -3.101_074,
   },
@@ -137,7 +124,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 673,
-    notes: 'Wainwright cairn is 100m N at NY 26634 30855',
     latitude: 54.666_457,
     longitude: -3.138_898,
   },
@@ -150,7 +136,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 702,
-    notes: 'cairn 50m NE at NY 33382 30609 is c 2m lower',
     latitude: 54.665_538,
     longitude: -3.035_037,
   },
@@ -162,8 +147,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|HuMP|Fellranger|Synge|Tump|',
     height: 359,
-    notes:
-      'note: cairn described by Wainwright and Birkett has been largely destroyed',
     latitude: 54.655_627,
     longitude: -3.250_157,
   },
@@ -175,7 +158,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Fellranger|Synge|Tump|',
     height: 522,
-    notes: '',
     latitude: 54.653_236,
     longitude: -3.001_663,
   },
@@ -187,7 +169,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Synge|',
     height: 631.8,
-    notes: 'ground by cairn 120m W at NY 31055 29228 is 0.3m lower',
     latitude: 54.653_232,
     longitude: -3.068_359,
   },
@@ -200,7 +181,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 684.1,
-    notes: "Wainwright's cairn is 100m NE at NY 33612 29076 and is lower",
     latitude: 54.651_95,
     longitude: -3.031_731,
   },
@@ -213,7 +193,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Furth|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 930.4,
-    notes: 'note Wainwright and Birkett describe trig point as summit',
     latitude: 54.651_391,
     longitude: -3.147_761,
   },
@@ -225,7 +204,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|deleted Nuttall|',
     height: 690.4,
-    notes: '',
     latitude: 54.648_261,
     longitude: -3.172_486,
   },
@@ -238,7 +216,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 734,
-    notes: 'ground 35m W at NY 24844 28447 is 1.5m lower',
     latitude: 54.645_505,
     longitude: -3.165_618,
   },
@@ -250,8 +227,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|sub HuMP|Fellranger|Synge|Tump|',
     height: 374,
-    notes:
-      'ground is 0.7m higher than trig point 70m NNW at NY17961 28593 (Wainwright,Birkett); cairn 50m N at NY 17982 28582 is 0.5m lower',
     latitude: 54.645_249,
     longitude: -3.272_325,
   },
@@ -263,7 +238,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|sub Sim|',
     height: 746.8,
-    notes: '',
     latitude: 54.642_398,
     longitude: -3.155_984,
   },
@@ -276,7 +250,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 867.8,
-    notes: 'ground 2m N of trig point about as high',
     latitude: 54.639_949,
     longitude: -3.049_789,
   },
@@ -289,7 +262,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 865,
-    notes: 'Wainwright summit is the cairn (NY 26680 27785)',
     latitude: 54.639_911,
     longitude: -3.137_629,
   },
@@ -302,7 +274,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Dodd|Dewey|HuMP|Fellranger|Synge|Tump|',
     height: 502,
-    notes: '',
     latitude: 54.635_61,
     longitude: -3.172_122,
   },
@@ -315,7 +286,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 715,
-    notes: 'cairn (NY 28540 27171) is Wainwright and Birkett summit',
     latitude: 54.634_357,
     longitude: -3.108_518,
   },
@@ -327,8 +297,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|sub Dodd|Fellranger|Synge|',
     height: 510.2,
-    notes:
-      'Wainwright summit cairn is 170m NW at NY 19444 27291 and is 0.9m lower',
     latitude: 54.632_165,
     longitude: -3.247_904,
   },
@@ -340,7 +308,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 469,
-    notes: '',
     latitude: 54.629_665,
     longitude: -3.218_084,
   },
@@ -352,7 +319,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|',
     height: 450.4,
-    notes: '',
     latitude: 54.627_991,
     longitude: -3.277_642,
   },
@@ -365,7 +331,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Dodd|Dewey|HuMP|Fellranger|Synge|Tump|',
     height: 552,
-    notes: '',
     latitude: 54.627_823,
     longitude: -3.233_984,
   },
@@ -378,7 +343,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Dodd|Dewey|HuMP|Fellranger|Synge|Tump|',
     height: 537,
-    notes: '',
     latitude: 54.619_846,
     longitude: -2.935_641,
   },
@@ -390,7 +354,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 517,
-    notes: 'highest point is ground 6m E of shelter at NY 19119 25135',
     latitude: 54.614_855,
     longitude: -3.254_033,
   },
@@ -402,8 +365,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 369,
-    notes:
-      "Wainwright summit position uncertain, 1203' height 80m SW at NY 27849 24654 is c.2m lower",
     latitude: 54.612_432,
     longitude: -3.117_863,
   },
@@ -416,8 +377,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Dodd|Dewey|HuMP|Fellranger|Synge|Tump|',
     height: 505,
-    notes:
-      'ground 30m W at NY 42296 24019 & 25m SW at NY 42306 24000 are just lower',
     latitude: 54.608_024,
     longitude: -2.894_465,
   },
@@ -429,8 +388,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 416,
-    notes:
-      'trig point (NY 13222 24247) 5m E of cairn is Wainwright and Birkett and is 15cm lower',
     latitude: 54.605_82,
     longitude: -3.344_699,
   },
@@ -443,7 +400,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 726,
-    notes: '',
     latitude: 54.593_661,
     longitude: -3.032_362,
   },
@@ -456,7 +412,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 791,
-    notes: '',
     latitude: 54.591_745,
     longitude: -3.242_071,
   },
@@ -468,7 +423,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Marilyn|HuMP|Fellranger|Synge|Tump|',
     height: 423,
-    notes: 'about 8m higher than S top (hill 3780 Loweswater Fell)',
     latitude: 54.591_358,
     longitude: -3.336_608,
   },
@@ -480,7 +434,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Marilyn|HuMP|Fellranger|Synge|Tump|',
     height: 355,
-    notes: '',
     latitude: 54.588_432,
     longitude: -3.071_568,
   },
@@ -492,8 +445,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 481.2,
-    notes:
-      'trig point is Wainwright/Birkett but rocks 3m S and 8m S are higher (16 cm below FB); N knoll of S top (Hill 7833) 105m S at NY 40730 21722 is 1cm higher than rocks',
     latitude: 54.588_11,
     longitude: -2.918_201,
   },
@@ -506,7 +457,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|sub HuMP|Fellranger|Synge|Sim|Tump|',
     height: 769.6,
-    notes: '',
     latitude: 54.588_082,
     longitude: -3.261_675,
   },
@@ -518,7 +468,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|',
     height: 707,
-    notes: '',
     latitude: 54.585_912,
     longitude: -3.285_161,
   },
@@ -530,7 +479,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 455,
-    notes: '',
     latitude: 54.585_66,
     longitude: -3.197_52,
   },
@@ -542,7 +490,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Fellranger|Synge|Tump|',
     height: 568,
-    notes: '30cm higher than small rock 15m NE',
     latitude: 54.582_169,
     longitude: -3.222_159,
   },
@@ -554,7 +501,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 379,
-    notes: '',
     latitude: 54.581_608,
     longitude: -3.120_377,
   },
@@ -566,8 +512,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 533,
-    notes:
-      'probably Wainwright/Birkett summit; also cairn 190m SSE at NY 46165 20510 and knoll 50m S at NY 46056 20627 may be as high',
     latitude: 54.578_426,
     longitude: -2.835_799,
   },
@@ -580,8 +524,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 637,
-    notes:
-      'this summit is highest point and 3-5m higher than next 3 summits W on ridge',
     latitude: 54.576_817,
     longitude: -3.210_133,
   },
@@ -593,7 +535,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Synge|',
     height: 475,
-    notes: 'metal fence post is W & B; cairn 5m W is as high',
     latitude: 54.575_943,
     longitude: -3.378_34,
   },
@@ -606,8 +547,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 857,
-    notes:
-      'ground is 20cm higher than cairn at NY 34195 20557 and equal in height with ground 30m SE at NY 34228 20506; Wainwright shelter is at NY 34272 20452',
     latitude: 54.575_689,
     longitude: -3.019_377,
   },
@@ -620,8 +559,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 672,
-    notes:
-      '0.75m higher than ground around Wainwright cairn 120m SW at NY 20749 20598',
     latitude: 54.574_968,
     longitude: -3.225_951,
   },
@@ -633,8 +570,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 524,
-    notes:
-      'probably Wainwright summit but slightly lower than cairn 140m S at NY 45314 19950',
     latitude: 54.573_028,
     longitude: -2.846_935,
   },
@@ -647,8 +582,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 839.2,
-    notes:
-      '30cm higher than trig point at NY 19270 20365. Note trig point is Wainwright summit.',
     latitude: 54.571_762,
     longitude: -3.250_234,
   },
@@ -661,7 +594,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 851.6,
-    notes: 'ground 100m ENE at NY 17580 20375 is 0.5m lower',
     latitude: 54.571_635,
     longitude: -3.277_905,
   },
@@ -674,7 +606,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 773,
-    notes: 'cairn is at NY 19821 20281',
     latitude: 54.571_328,
     longitude: -3.241_821,
   },
@@ -686,7 +617,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Marilyn|HuMP|Fellranger|Synge|Tump|',
     height: 388,
-    notes: 'ground 45m SSE at NY 43323 19781 is of similar height',
     latitude: 54.570_412,
     longitude: -2.878_498,
   },
@@ -698,8 +628,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|sub Sim|',
     height: 756,
-    notes:
-      'rock 6m NW is as high; NW cairn is at NY 35887 19748 and SE cairn at NY 35912 19734 and both are lower',
     latitude: 54.568_719,
     longitude: -2.992_938,
   },
@@ -711,7 +639,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 451,
-    notes: 'tiny flat cairn no longer exists',
     latitude: 54.568_316,
     longitude: -3.1707,
   },
@@ -724,7 +651,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Dodd|Dewey|HuMP|Fellranger|Synge|Tump|',
     height: 581,
-    notes: 'cairn described by Wainwright is no longer present',
     latitude: 54.566_938,
     longitude: -3.228_123,
   },
@@ -736,7 +662,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 789,
-    notes: '',
     latitude: 54.566_917,
     longitude: -3.028_995,
   },
@@ -748,8 +673,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Fellranger|Synge|Tump|',
     height: 590,
-    notes:
-      'rock 30m SE of wind shelter is as high, wind shelter is Wainwright summit',
     latitude: 54.566_37,
     longitude: -3.106_177,
   },
@@ -762,7 +685,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 773.9,
-    notes: '',
     latitude: 54.566_272,
     longitude: -3.257_089,
   },
@@ -775,7 +697,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Dodd|Dewey|HuMP|Fellranger|Synge|Tump|',
     height: 573,
-    notes: '',
     latitude: 54.564_569,
     longitude: -3.377_198,
   },
@@ -788,7 +709,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 843.7,
-    notes: 'ground is 20cm higher than cairn (NY 34296 18923)',
     latitude: 54.561_128,
     longitude: -3.017_405,
   },
@@ -801,7 +721,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 660,
-    notes: '',
     latitude: 54.559_367,
     longitude: -3.269_31,
   },
@@ -813,7 +732,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 461,
-    notes: '',
     latitude: 54.559_231,
     longitude: -3.078_72,
   },
@@ -825,7 +743,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Fellranger|Synge|Tump|',
     height: 556,
-    notes: '',
     latitude: 54.558_701,
     longitude: -3.242_613,
   },
@@ -838,8 +755,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Dodd|Dewey|HuMP|Fellranger|Synge|Tump|',
     height: 512,
-    notes:
-      'cairn described by Wainwright no longer present but may have been on small rocky outcrop 55m S at NY 14839 18558; this is 2m lower',
     latitude: 54.555_581,
     longitude: -3.318_258,
   },
@@ -851,7 +766,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 432,
-    notes: '',
     latitude: 54.555_245,
     longitude: -2.866_807,
   },
@@ -864,7 +778,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|sub HuMP|Fellranger|Synge|Sim|Tump|',
     height: 676.1,
-    notes: '',
     latitude: 54.554_936,
     longitude: -2.977_002,
   },
@@ -877,8 +790,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 672,
-    notes:
-      'trig point is at NY 45686 18123 and is 40cm lower; boundary stone 100m ENE at NY 45731 18083 is <40cm lower',
     latitude: 54.554_737,
     longitude: -2.842_087,
   },
@@ -890,7 +801,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Fellranger|Synge|Tump|',
     height: 524.3,
-    notes: 'Wainwright cairn at NY 11698 18384 is 0.2m lower',
     latitude: 54.554_011,
     longitude: -3.367_472,
   },
@@ -902,8 +812,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 575,
-    notes:
-      'Wainwright cairn 15m NW at NY 23671 18202 is 5cm lower and ground 55m SE at NY 23700 18140 is 20cm lower',
     latitude: 54.553_174,
     longitude: -3.181_585,
   },
@@ -915,7 +823,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 355,
-    notes: 'rock 2m S of cairn is actually the highest point',
     latitude: 54.552_643,
     longitude: -3.289_032,
   },
@@ -927,8 +834,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dewey|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 609,
-    notes:
-      'rock is 0.3m higher than FB; cairn 85m ENE at NY 28788 18074 might be higher',
     latitude: 54.552_623,
     longitude: -3.103_764,
   },
@@ -941,7 +846,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Dodd|Dewey|HuMP|Fellranger|Synge|Tump|',
     height: 506.2,
-    notes: '',
     latitude: 54.550_848,
     longitude: -3.343_261,
   },
@@ -953,7 +857,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 442,
-    notes: '',
     latitude: 54.549_47,
     longitude: -2.959_246,
   },
@@ -966,7 +869,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|sub HuMP|Fellranger|Synge|Sim|Tump|',
     height: 882.7,
-    notes: '',
     latitude: 54.547_718,
     longitude: -3.017_473,
   },
@@ -978,7 +880,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Fellranger|Synge|Tump|',
     height: 509,
-    notes: 'ground 140m SW at NY 42800 17048 is as high',
     latitude: 54.546_49,
     longitude: -2.884_399,
   },
@@ -991,8 +892,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 657,
-    notes:
-      'outcrop is 0.3m higher than trig point 30m E (NY 40560 16950); cairn is Wainwright summit.',
     latitude: 54.544_269,
     longitude: -2.920_725,
   },
@@ -1004,8 +903,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|deleted Nuttall|',
     height: 671,
-    notes:
-      'cairn (Wainwright/Birkett) is 30m NW at NY45571 16782; summit is 3-4m lower than ground 400m S (Hill 2927)',
     latitude: 54.543_239,
     longitude: -2.842_453,
   },
@@ -1018,7 +915,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 863.2,
-    notes: '',
     latitude: 54.540_904,
     longitude: -3.025_063,
   },
@@ -1031,8 +927,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 737,
-    notes:
-      'rock 4m SW is just lower; rock under cairn 10m W at NY 20180 16873 is c 30cm lower',
     latitude: 54.540_803,
     longitude: -3.235_082,
   },
@@ -1044,7 +938,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 515,
-    notes: 'ground 10m N of cairn is as high',
     latitude: 54.538_86,
     longitude: -3.100_209,
   },
@@ -1057,7 +950,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 727,
-    notes: 'several rocks nearby look higher but are not',
     latitude: 54.537_828,
     longitude: -3.213_755,
   },
@@ -1069,7 +961,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 417.2,
-    notes: "Wainwright's rock tor 70m SW at NY 26412 16240 is 1m - 2m lower",
     latitude: 54.536_408,
     longitude: -3.137_963,
   },
@@ -1082,7 +973,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|sub Marilyn|Fellranger|Synge|Sim|Tump|',
     height: 653.1,
-    notes: 'ground 7m NE and also 30m S at NY 23420 16200 is as high',
     latitude: 54.535_568,
     longitude: -3.185_141,
   },
@@ -1094,7 +984,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|sub Sim|',
     height: 717.6,
-    notes: 'higher than large cairn 450m NNE at NY 36524 16393',
     latitude: 54.535_033,
     longitude: -2.985_32,
   },
@@ -1107,8 +996,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 616,
-    notes:
-      "rock is 22m S of trig point (Wainwright's summit at NY 12391 16381) and 40cm higher than rock by trig point; rock is 12m S of windshelter (Birkett's summit at NY 12395 16373) and 10cm higher than its floor; Wainwright's 'north top' is lower",
     latitude: 54.534_903,
     longitude: -3.355_427,
   },
@@ -1121,7 +1008,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 889.6,
-    notes: '',
     latitude: 54.533_472,
     longitude: -3.008_944,
   },
@@ -1133,7 +1019,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Fellranger|Synge|Tump|',
     height: 290,
-    notes: '',
     latitude: 54.533_181,
     longitude: -3.161_612,
   },
@@ -1145,7 +1030,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|',
     height: 475,
-    notes: '',
     latitude: 54.532_026,
     longitude: -3.089_702,
   },
@@ -1158,7 +1042,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 633,
-    notes: '',
     latitude: 54.529_725,
     longitude: -3.327_207,
   },
@@ -1170,7 +1053,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Synge|Tump|',
     height: 576,
-    notes: 'Wainwright and Birkett; ground 30m NE at NY 43440 15223 is lower',
     latitude: 54.528_893,
     longitude: -2.875_675,
   },
@@ -1183,7 +1065,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 755.3,
-    notes: 'cairn is at NY 16054 15453',
     latitude: 54.527_438,
     longitude: -3.298_545,
   },
@@ -1196,8 +1077,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 753,
-    notes:
-      'ground at cairn (Wainwright/Birkett) at NY 22310 15330 is 30cm lower',
     latitude: 54.527_238,
     longitude: -3.202_284,
   },
@@ -1210,7 +1089,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Furth|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Sim|County Top - Historic|Fellranger|Synge|Tump|',
     height: 949.8,
-    notes: 'trig point is slightly lower',
     latitude: 54.527_001,
     longitude: -3.017_514,
   },
@@ -1222,7 +1100,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 433,
-    notes: 'rock 3m S is highest point',
     latitude: 54.526_364,
     longitude: -2.938_524,
   },
@@ -1234,7 +1111,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Fellranger|Synge|Tump|',
     height: 567,
-    notes: 'rock 30m to NE at NY 41354 14841 is just lower',
     latitude: 54.525_312,
     longitude: -2.907_984,
   },
@@ -1246,8 +1122,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 449,
-    notes:
-      'this is S top (Wainwright summit); top (two cairns) 80m N (Birkett) at NY 26998 14765 is 50cm lower',
     latitude: 54.522_189,
     longitude: -3.129_333,
   },
@@ -1259,7 +1133,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|',
     height: 806.2,
-    notes: '30cm lower than hill 2381 270m ENE at NY 17009 14817',
     latitude: 54.521_578,
     longitude: -3.287_667,
   },
@@ -1271,8 +1144,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|sub Sim|',
     height: 624,
-    notes:
-      'this is Nuttall/Subsimm/Birkett summit; cairn (Wainwright) 200m NE at NY 38179 14485 is lower',
     latitude: 54.520_711,
     longitude: -2.959_051,
   },
@@ -1284,8 +1155,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|sub Sim|',
     height: 891.3,
-    notes:
-      'Wainwright is small cairn at NY 34406 14157, cairn 20m NW is probably lower',
     latitude: 54.518_993,
     longitude: -3.015_446,
   },
@@ -1298,7 +1167,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Dodd|Dewey|HuMP|Fellranger|Synge|Tump|',
     height: 523,
-    notes: 'SE top 100m away at NY 09815 14330 is lower',
     latitude: 54.516_717,
     longitude: -3.396_073,
   },
@@ -1311,7 +1179,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 648.9,
-    notes: 'higher ground may be hidden beneath the cairn',
     latitude: 54.516_562,
     longitude: -3.228_18,
   },
@@ -1324,8 +1191,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 696,
-    notes:
-      "cairns 55m NNE at NY 43271 13701(Wainwright's cairn) & 80m NNW at NY 43237 13718 are lower",
     latitude: 54.514_937,
     longitude: -2.878_033,
   },
@@ -1337,7 +1202,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 561.2,
-    notes: 'true summit is 230m E at NY 41904 13699',
     latitude: 54.514_891,
     longitude: -2.902_593,
   },
@@ -1350,7 +1214,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 744.8,
-    notes: 'cairn to N is lower',
     latitude: 54.514_628,
     longitude: -3.267_412,
   },
@@ -1362,7 +1225,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 488,
-    notes: 'cairn 10m W at NY 08491 14075 is lower; ground 100m E is lower',
     latitude: 54.513_766,
     longitude: -3.414_88,
   },
@@ -1375,7 +1237,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 803.6,
-    notes: '',
     latitude: 54.513_367,
     longitude: -2.853_779,
   },
@@ -1388,7 +1249,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 841.2,
-    notes: '',
     latitude: 54.511_94,
     longitude: -2.975_836,
   },
@@ -1401,7 +1261,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 858.5,
-    notes: 'rock 7m W may be as high; cairn 30m SW at NY 34601 13046 is lower',
     latitude: 54.508_693,
     longitude: -3.011_175,
   },
@@ -1414,8 +1273,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 792.4,
-    notes:
-      "Wainwright's cairn is 145m SW at NY 44227 12772 and is 1m lower; rock 80m SW at NY 44293 12800 & ground 90m SW at NY 44276 12801 are both of similar height",
     latitude: 54.508_092,
     longitude: -2.861_252,
   },
@@ -1427,8 +1284,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Fellranger|Synge|Tump|',
     height: 597,
-    notes:
-      'this is the S cairn and is about 2m higher than N cairn 50m N at NY 19336 13204',
     latitude: 54.507_243,
     longitude: -3.247_321,
   },
@@ -1440,7 +1295,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Synge|deleted Nuttall|',
     height: 739,
-    notes: '',
     latitude: 54.506_316,
     longitude: -2.870_821,
   },
@@ -1452,7 +1306,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|',
     height: 781,
-    notes: '',
     latitude: 54.505_513,
     longitude: -2.854_959,
   },
@@ -1464,8 +1317,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|',
     height: 697,
-    notes:
-      'outcrop 155m ENE at NY 21876 12581 is as high and OS bolt and cairn 45m NE of this at NY 21914 12615 is lower',
     latitude: 54.502_362,
     longitude: -3.210_186,
   },
@@ -1477,7 +1328,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Fellranger|Synge|Tump|',
     height: 551,
-    notes: '',
     latitude: 54.502_198,
     longitude: -3.146_85,
   },
@@ -1490,7 +1340,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 723,
-    notes: '',
     latitude: 54.499_914,
     longitude: -3.095_534,
   },
@@ -1502,8 +1351,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|sub Dodd|Fellranger|Synge|',
     height: 586.1,
-    notes:
-      "local topography fits Wainwright's sketch and knoll is several metres higher than any other top on ridge; embedded rock on knoll 240m away at NY 38540 12105 is probably Wainwright's NE summit",
     latitude: 54.499_595,
     longitude: -2.953_955,
   },
@@ -1515,7 +1362,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|sub Dodd|Fellranger|Synge|',
     height: 525,
-    notes: '',
     latitude: 54.499_056,
     longitude: -3.120_48,
   },
@@ -1527,8 +1373,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|sub Sim|',
     height: 619,
-    notes:
-      'fence post by wall (Wainwright summit) is 7m N of small cairn; larger cairn 35m NW at NY 41107 11874 is lower',
     latitude: 54.498_538,
     longitude: -2.910_448,
   },
@@ -1541,7 +1385,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 892.4,
-    notes: '',
     latitude: 54.497_479,
     longitude: -3.281_134,
   },
@@ -1553,8 +1396,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|deleted Nuttall|',
     height: 698.1,
-    notes:
-      'this is Nuttall summit S of wall; Wainwright summit is N of wall at NY 42672 11869',
     latitude: 54.497_466,
     longitude: -2.885_363,
   },
@@ -1567,7 +1408,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 873.3,
-    notes: 'rock 20m SW at NY 35861 11736 is 0.3m lower',
     latitude: 54.497_054,
     longitude: -2.991_648,
   },
@@ -1580,8 +1420,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 715,
-    notes:
-      'Wainwright cairn 35m ENE at NY 21489 11928 and cairn 75m SE at NY 21518 11873 are both c 0.4m lower',
     latitude: 54.496_479,
     longitude: -3.214_274,
   },
@@ -1594,7 +1432,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 736.8,
-    notes: '30m ENE of cairn (Wainwright) at NY 34390 11515 and 40cm higher',
     latitude: 54.494_857,
     longitude: -3.014_027,
   },
@@ -1607,8 +1444,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Dodd|Dewey|HuMP|Fellranger|Synge|Tump|',
     height: 541,
-    notes:
-      'cairn 3m S is lower; cairn 200m SW at NY 09024 11817 is several metres lower',
     latitude: 54.494_811,
     longitude: -3.403_973,
   },
@@ -1620,7 +1455,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|sub Sim|',
     height: 819,
-    notes: '',
     latitude: 54.493_389,
     longitude: -3.302_174,
   },
@@ -1633,8 +1467,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 655,
-    notes:
-      'windshelter (Wainwright & Birkett) is at NY 49073 11186 and is 75cm lower',
     latitude: 54.493_08,
     longitude: -2.787_925,
   },
@@ -1647,7 +1479,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 823.1,
-    notes: 'rock near Wainwright cairn 100m SE at NY 36891 11207 is as high',
     latitude: 54.492_752,
     longitude: -2.976_954,
   },
@@ -1660,7 +1491,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 646,
-    notes: '',
     latitude: 54.492_581,
     longitude: -3.197_762,
   },
@@ -1672,7 +1502,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Fellranger|Synge|Tump|',
     height: 571,
-    notes: '',
     latitude: 54.492_531,
     longitude: -3.122_463,
   },
@@ -1685,7 +1514,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 828,
-    notes: '',
     latitude: 54.491_691,
     longitude: -2.864_86,
   },
@@ -1697,7 +1525,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Fellranger|Synge|Tump|',
     height: 553,
-    notes: 'cairn 80m E at NY 32023 11167 is 2m lower',
     latitude: 54.491_15,
     longitude: -3.052_179,
   },
@@ -1710,7 +1537,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 841,
-    notes: '',
     latitude: 54.490_904,
     longitude: -3.299_224,
   },
@@ -1722,7 +1548,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 519,
-    notes: '',
     latitude: 54.488_623,
     longitude: -2.937_691,
   },
@@ -1734,7 +1559,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|sub Sim|',
     height: 697,
-    notes: 'cairn is Wainwright and Birkett summit',
     latitude: 54.486_868,
     longitude: -3.341_256,
   },
@@ -1747,7 +1571,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 801,
-    notes: '',
     latitude: 54.485_699,
     longitude: -3.213_769,
   },
@@ -1760,8 +1583,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 792,
-    notes:
-      'rock 15m N at NY 37458 10451 is slightly higher than edge of cairn but higher ground may exist under cairn',
     latitude: 54.4854,
     longitude: -2.966_93,
   },
@@ -1774,7 +1595,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 766.4,
-    notes: 'cairn (NY 35584 10395) is Wainwright',
     latitude: 54.484_906,
     longitude: -2.995_692,
   },
@@ -1787,8 +1607,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|sub HuMP|Fellranger|Synge|Sim|Tump|',
     height: 797,
-    notes:
-      'Wainwright claims windshelter on N side of wall (NY 14475 10726) is marginally higher',
     latitude: 54.484_568,
     longitude: -3.321_576,
   },
@@ -1800,7 +1618,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Fellranger|Synge|Tump|',
     height: 537,
-    notes: '',
     latitude: 54.484_231,
     longitude: -3.079_493,
   },
@@ -1813,7 +1630,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 826,
-    notes: '',
     latitude: 54.483_922,
     longitude: -3.289_879,
   },
@@ -1826,8 +1642,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 783,
-    notes:
-      'Nuttall summit; Wainwright summit (cairn) 160m NE at NY 24722 10561 and cairn 55m W are lower',
     latitude: 54.483_839,
     longitude: -3.165_338,
   },
@@ -1839,7 +1653,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|deleted Nuttall|',
     height: 760,
-    notes: '',
     latitude: 54.483_418,
     longitude: -2.854_112,
   },
@@ -1852,7 +1665,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 802,
-    notes: '',
     latitude: 54.483_323,
     longitude: -3.244_123,
   },
@@ -1865,7 +1677,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 711.5,
-    notes: 'circular trig station 40m SE at NY 47795 09971 is 0.25m lower',
     latitude: 54.482_669,
     longitude: -2.807_575,
   },
@@ -1878,8 +1689,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 784,
-    notes:
-      'beacon (Wainwright/Birkett) 45m S at NY 43138 10008 is lower. Ground in wall 10m W is of similar height',
     latitude: 54.482_611,
     longitude: -2.878_976,
   },
@@ -1892,7 +1701,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 899,
-    notes: '',
     latitude: 54.482_084,
     longitude: -3.219_296,
   },
@@ -1905,8 +1713,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 763.7,
-    notes:
-      'rock is about 1m higher than Wainwright cairn 90m E at NY 41867 09997; there are several cairns in the summit area',
     latitude: 54.482_06,
     longitude: -2.900_08,
   },
@@ -1919,8 +1725,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 637,
-    notes:
-      'ground 120m ENE at NY 38853 10053 and 20m NW at NY 38722 10047 is lower',
     latitude: 54.481_916,
     longitude: -2.947_169,
   },
@@ -1932,8 +1736,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 420.1,
-    notes:
-      'Fellranger summit is the cairn 200m SE at NY 31853 09923 and is 2m higher',
     latitude: 54.481_07,
     longitude: -3.055_825,
   },
@@ -1945,7 +1747,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 601.1,
-    notes: 'Wainwright summit cairn is 16m NW at NY 22903 10180',
     latitude: 54.480_998,
     longitude: -3.191_249,
   },
@@ -1957,7 +1758,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 654,
-    notes: 'nearby rock is higher than cairn base; ground to S is lower',
     latitude: 54.477_939,
     longitude: -2.931_566,
   },
@@ -1970,7 +1770,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|sub Marilyn|Fellranger|Synge|Sim|Tump|',
     height: 779,
-    notes: 'cairn is built on largely hidden small outcrop of rock',
     latitude: 54.476_414,
     longitude: -2.835_323,
   },
@@ -1983,8 +1782,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 762,
-    notes:
-      'rock 30cm higher than flush bracket; windshelter conceal higher rock',
     latitude: 54.475_962,
     longitude: -3.111_268,
   },
@@ -1996,7 +1793,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 405,
-    notes: '',
     latitude: 54.475_026,
     longitude: -3.040_823,
   },
@@ -2008,8 +1804,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 549,
-    notes:
-      'cairn is Wainwright and Birkett; it is c 3m lower than highest point of fell 100m WNW at NY 30277 09335',
     latitude: 54.474_295,
     longitude: -3.076_006,
   },
@@ -2021,7 +1815,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 504,
-    notes: 'ground 25m N at NY 34774 09250 is at least as high',
     latitude: 54.474_276,
     longitude: -3.008_366,
   },
@@ -2033,8 +1826,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 656,
-    notes:
-      'Wainwright summit; highest point on E side of wall but note ground 25m to W (NY 37420 08821) on other side of wall is as high',
     latitude: 54.470_976,
     longitude: -2.966_791,
   },
@@ -2047,7 +1838,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 776,
-    notes: 'trig point is at NY 39650 08771; rock 13m NW is 5cm lower',
     latitude: 54.470_589,
     longitude: -2.932_572,
   },
@@ -2059,7 +1849,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|deleted Nuttall|',
     height: 736,
-    notes: '',
     latitude: 54.470_362,
     longitude: -3.102_552,
   },
@@ -2072,7 +1861,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 720,
-    notes: '',
     latitude: 54.468_949,
     longitude: -2.872_974,
   },
@@ -2085,7 +1873,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 785,
-    notes: '',
     latitude: 54.466_367,
     longitude: -3.179_175,
   },
@@ -2097,7 +1884,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Synge|sub Sim|',
     height: 612,
-    notes: 'cairn has been destroyed',
     latitude: 54.466_072,
     longitude: -2.995_142,
   },
@@ -2110,7 +1896,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 909.5,
-    notes: 'cairn 160m W at NY 22532 08465 is c 1m lower',
     latitude: 54.464_94,
     longitude: -3.194_548,
   },
@@ -2123,7 +1908,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|sub Marilyn|Fellranger|Synge|Sim|Tump|',
     height: 628.7,
-    notes: '',
     latitude: 54.464_889,
     longitude: -3.276_86,
   },
@@ -2136,8 +1920,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 692,
-    notes:
-      'summit is 55m NE of trig point (NY 13963 08402) and 15m SSW of small cairn (NY 14008 08455)',
     latitude: 54.464_065,
     longitude: -3.328_274,
   },
@@ -2150,8 +1932,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 664,
-    notes:
-      'cairn is NE of pillar (NY 48784 07802); pointed rock on grassy rise 60m WNW at NY 48786 07863 is of equal height',
     latitude: 54.463_458,
     longitude: -2.790_658,
   },
@@ -2164,7 +1944,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 807,
-    notes: 'finger of rock on N top is at least as high',
     latitude: 54.462_803,
     longitude: -3.2213,
   },
@@ -2177,8 +1956,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 730.5,
-    notes:
-      'trig point is 3m E of wall; cairn 3m W of wall is lower; other outcrops in summit area are all lower',
     latitude: 54.462_682,
     longitude: -2.826_034,
   },
@@ -2190,7 +1967,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|sub Sim|',
     height: 723,
-    notes: 'Wainwright summit is mound 50m north of tarn NY 27925 08144',
     latitude: 54.462_189,
     longitude: -3.112_653,
   },
@@ -2202,7 +1978,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 508,
-    notes: '',
     latitude: 54.462_069,
     longitude: -2.967_985,
   },
@@ -2215,7 +1990,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 757,
-    notes: 'S cairn at NY 43660 07720 is c 50cm lower',
     latitude: 54.462_017,
     longitude: -2.870_837,
   },
@@ -2227,7 +2001,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|',
     height: 700,
-    notes: '',
     latitude: 54.461_494,
     longitude: -3.105_214,
   },
@@ -2239,8 +2012,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 541,
-    notes:
-      'Wainwright summit; rocky knoll 80m WSW at NY 30079 07807 is c 3m higher',
     latitude: 54.461_076,
     longitude: -3.078_806,
   },
@@ -2253,7 +2024,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 651,
-    notes: '',
     latitude: 54.457_935,
     longitude: -3.159_804,
   },
@@ -2266,8 +2036,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 638,
-    notes:
-      'outcrop is 40m N of Wainwright cairn (NY 49713 07177) and c 1.7m higher',
     latitude: 54.457_874,
     longitude: -2.777_191,
   },
@@ -2280,8 +2048,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 885,
-    notes:
-      'rib of rock 4mNE is as high; large cairn 30m NE at NY 23671 07527 is lower',
     latitude: 54.457_172,
     longitude: -3.179_219,
   },
@@ -2294,7 +2060,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 736,
-    notes: '',
     latitude: 54.456_898,
     longitude: -3.109_455,
   },
@@ -2306,7 +2071,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 450,
-    notes: '',
     latitude: 54.456_414,
     longitude: -2.995_849,
   },
@@ -2319,7 +2083,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 708.4,
-    notes: '',
     latitude: 54.456_393,
     longitude: -3.121_381,
   },
@@ -2331,7 +2094,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|sub Sim|',
     height: 681.7,
-    notes: '',
     latitude: 54.454_429,
     longitude: -3.115_991,
   },
@@ -2344,7 +2106,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Furth|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|County Top - Administrative|County Top - Historic|County Top - Current County and Unitary Authority|Tump|',
     height: 978.07,
-    notes: '',
     latitude: 54.454_263,
     longitude: -3.211_682,
   },
@@ -2357,7 +2118,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Dodd|Dewey|HuMP|Fellranger|Synge|Tump|',
     height: 582,
-    notes: '',
     latitude: 54.453_249,
     longitude: -3.311_327,
   },
@@ -2370,7 +2130,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 707,
-    notes: '',
     latitude: 54.452_928,
     longitude: -2.868_731,
   },
@@ -2382,7 +2141,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 393.8,
-    notes: 'ground 5m NW is of similar height',
     latitude: 54.450_687,
     longitude: -3.042_89,
   },
@@ -2394,8 +2152,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|Tump|',
     height: 364,
-    notes:
-      'knoll is 40m N of cairn (NY 42233 06386) and 2m higher; cairn is Birkett and Wainwright summit',
     latitude: 54.449_952,
     longitude: -2.892_312,
   },
@@ -2407,8 +2163,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 587,
-    notes:
-      'small cairn by wall 90m N at NY 47254 06306 (Birkett) is c 40cm lower; rock 3m W of wall is c 30cm lower',
     latitude: 54.448_577,
     longitude: -2.814_707,
   },
@@ -2421,7 +2175,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|sub Marilyn|Fellranger|Synge|Sim|Tump|',
     height: 902.9,
-    notes: '',
     latitude: 54.447_816,
     longitude: -3.166_242,
   },
@@ -2434,7 +2187,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Furth|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 963.9,
-    notes: '',
     latitude: 54.447_498,
     longitude: -3.224_731,
   },
@@ -2446,7 +2198,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|',
     height: 423,
-    notes: '',
     latitude: 54.443_165,
     longitude: -3.334_275,
   },
@@ -2458,8 +2209,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|HuMP|sub Marilyn|Fellranger|Tump|',
     height: 486.9,
-    notes:
-      'mound 130m NE at NY 40355 05275 is 0.83m lower and is Hill 3838, the 487m spot height on 1:50000 map',
     latitude: 54.438_194,
     longitude: -2.921_751,
   },
@@ -2471,7 +2220,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Marilyn|HuMP|Fellranger|Synge|Tump|',
     height: 335,
-    notes: '',
     latitude: 54.437_454,
     longitude: -3.008_355,
   },
@@ -2483,7 +2231,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Fellranger|Synge|deleted Nuttall|',
     height: 762,
-    notes: 'tor 40m NW at NY 20970 05030 is 30cm lower',
     latitude: 54.434_392,
     longitude: -3.219_575,
   },
@@ -2496,7 +2243,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 859,
-    notes: 'North cairn is higher than South cairn',
     latitude: 54.433_704,
     longitude: -3.159_813,
   },
@@ -2509,8 +2255,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Dewey|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 608.8,
-    notes:
-      'higher by 0.5m than rock by windshelter at NY16905 05025; rock 30m SW at NY 16874 04908 is 0.04m lower',
     latitude: 54.432_93,
     longitude: -3.282_634,
   },
@@ -2522,7 +2266,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Marilyn|HuMP|Fellranger|Synge|Tump|',
     height: 470,
-    notes: '',
     latitude: 54.432_067,
     longitude: -3.076_41,
   },
@@ -2534,7 +2277,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Fellranger|Synge|Tump|',
     height: 516,
-    notes: '',
     latitude: 54.428_122,
     longitude: -2.869_995,
   },
@@ -2547,7 +2289,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 705,
-    notes: 'North cairn is higher than South cairn',
     latitude: 54.428_111,
     longitude: -3.124_925,
   },
@@ -2560,7 +2301,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 700.1,
-    notes: '',
     latitude: 54.4226,
     longitude: -3.137_582,
   },
@@ -2572,8 +2312,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Synge|Tump|',
     height: 483,
-    notes:
-      "Wainwright's summit is probably shaly ridge 60m ESE NY 42832 03198; Wainwright's sketch map may be misleading as it indicates summit is further SW where ground is obviously lower",
     latitude: 54.421_166,
     longitude: -2.883_595,
   },
@@ -2585,8 +2323,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Dodd|Dewey|Fellranger|Synge|Tump|',
     height: 537,
-    notes:
-      'rock 3m E of cairn is highest point of fell; cairn 100m SSE on S top at NY 15138 03442 is about 1m lower; rock 100m SSE on S top at NY 15148 03435 is about 0.7m lower',
     latitude: 54.420_162,
     longitude: -3.309_916,
   },
@@ -2599,7 +2335,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Dodd|Dewey|HuMP|Fellranger|Synge|Tump|',
     height: 549,
-    notes: 'top 200m SW is lower',
     latitude: 54.411_026,
     longitude: -3.185_029,
   },
@@ -2611,7 +2346,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|HuMP|Fellranger|Synge|Tump|',
     height: 323,
-    notes: 'rock 55m N of trig point (NY 34041 01641) is as high',
     latitude: 54.405_503,
     longitude: -3.017_955,
   },
@@ -2624,7 +2358,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|sub Marilyn|Fellranger|Synge|Sim|Tump|',
     height: 763,
-    notes: '',
     latitude: 54.400_488,
     longitude: -3.097_966,
   },
@@ -2636,7 +2369,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|sub Sim|',
     height: 785,
-    notes: '',
     latitude: 54.398_777,
     longitude: -3.124_738,
   },
@@ -2648,8 +2380,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Marilyn|HuMP|Fellranger|Synge|Tump|',
     height: 316,
-    notes:
-      'cairn on large rock outcrop (Birkett) 60m NNE at NY 31531 00657 is 0.5m lower; rock outcrop 110m NNE at NY 31557 00699 is 0.3m lower',
     latitude: 54.396_301,
     longitude: -3.056_527,
   },
@@ -2662,7 +2392,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 802.4,
-    notes: '',
     latitude: 54.395_257,
     longitude: -3.121_515,
   },
@@ -2675,7 +2404,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|Fellranger|Synge|Sim|Tump|',
     height: 773,
-    notes: 'cairn 40m NW at NY 25989 00396 is about 50cm lower',
     latitude: 54.393_339,
     longitude: -3.141_054,
   },
@@ -2688,7 +2416,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 653.2,
-    notes: 'rock tor 20m ENE is 1.6m lower',
     latitude: 54.386_916,
     longitude: -3.204_523,
   },
@@ -2700,7 +2427,6 @@ const hillList: Prisma.HillCreateInput[] = [
     country: 'England',
     classification: '|Wainwright|Birkett|Nuttall|Fellranger|Synge|',
     height: 795.9,
-    notes: '',
     latitude: 54.377_283,
     longitude: -3.124_197,
   },
@@ -2713,7 +2439,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|HuMP|sub Marilyn|Fellranger|Synge|Tump|',
     height: 488.7,
-    notes: 'rib of rock 25m NE of summit at SD 20032 98292 is 2cm lower',
     latitude: 54.373_706,
     longitude: -3.232_832,
   },
@@ -2726,7 +2451,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Marilyn|Hewitt|Nuttall|HuMP|County Top - Historic|Fellranger|Synge|Sim|Tump|',
     height: 802.4,
-    notes: '',
     latitude: 54.370_658,
     longitude: -3.121_445,
   },
@@ -2739,7 +2463,6 @@ const hillList: Prisma.HillCreateInput[] = [
     classification:
       '|Wainwright|Birkett|Hewitt|Nuttall|HuMP|Fellranger|Synge|Sim|Tump|',
     height: 778,
-    notes: '',
     latitude: 54.3703,
     longitude: -3.136_659,
   },

@@ -5,6 +5,7 @@ import { fromUnixTime } from 'date-fns'
 import { wrapSession } from '~/cookie.server'
 import { STRAVA_CLIENT_ID, STRAVA_CLIENT_SECRET } from '~/env.server'
 import * as core from '~/core'
+import { scheduleImport } from '~/core/import'
 
 const OAUTH_TOKEN_URL = 'https://www.strava.com/api/v3/oauth/token'
 
@@ -105,6 +106,7 @@ export const loader: LoaderFunction = async ({ request }) => {
     lastName: responseJson.athlete.lastname,
   })
   if (dbAthlete instanceof Error) {
+    console.error(dbAthlete)
     return { errorMessage: dbAthlete.message }
   }
 
@@ -116,10 +118,13 @@ export const loader: LoaderFunction = async ({ request }) => {
     scope,
   })
   if (dbSession instanceof Error) {
+    console.error(dbSession)
     return { errorMessage: dbSession.message }
   }
 
   const session = await wrapSession(request, dbSession)
+
+  await scheduleImport({ session })
 
   return redirect('/', {
     headers: await session.commitHeaders(),

@@ -7,14 +7,14 @@ if (typeof global.__persist !== 'object') {
   global.__persist = {}
 }
 
-const getOnce = <T>(key: string, fn: () => T): T => {
+const createGlobalVariable = <T>(key: string, getInitialValue: () => T): T => {
   if (key in global.__persist) {
     return global.__persist[key] as T
   }
 
-  const value = fn()
+  const value = getInitialValue()
   global.__persist[key] = value
   return value
 }
 
-export { getOnce }
+export { createGlobalVariable }

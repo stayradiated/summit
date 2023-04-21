@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client'
-import { getOnce } from './global.server'
+import { createGlobalVariable } from './global.server'
 
-const prisma = getOnce<PrismaClient>('prisma', () => new PrismaClient())
+const prisma = createGlobalVariable('prisma', () => new PrismaClient())
 export { prisma }

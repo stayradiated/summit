@@ -45,7 +45,7 @@ export function useSuperActionData<T = AppData>():
   | UseDataFunctionReturn<T>
   | undefined {
   const data = useActionData()
-  return data ? deserialize(data) : null
+  return data ? deserialize(data) : undefined
 }
 
 export type RedirectFunction = (

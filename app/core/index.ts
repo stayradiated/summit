@@ -32,8 +32,8 @@ const upsertAthlete = async (
 ): Promise<Athlete | Error> => {
   return errorBoundary(async () => {
     const athlete = await prisma.athlete.upsert({
-      create: options,
-      update: options,
+      create: { ...options, createdAt: new Date() },
+      update: { ...options, updatedAt: new Date() },
       where: {
         remoteId: options.remoteId,
       },

@@ -19,6 +19,9 @@ model Session {
   refreshToken         String
   scope                String
 
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+
   athlete Athlete @relation(fields: [athleteId], references: [id])
 }
 
@@ -28,6 +31,9 @@ model Athlete {
   username  String @unique
   firstName String
   lastName  String
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
 
   activities Activity[]
   sessions   Session[]
@@ -52,6 +58,9 @@ model Activity {
   endLatitude    Float?
   endLongitude   Float?
 
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+
   ascents Ascent[]
 
   athlete Athlete @relation(fields: [athleteId], references: [id])
@@ -68,7 +77,9 @@ model Hill {
   height         Float
   latitude       Float
   longitude      Float
-  notes          String
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
 
   ascents Ascent[]
 }
@@ -79,6 +90,9 @@ model Ascent {
 
   index    Int
   distance Float
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
 
   hill     Hill     @relation(fields: [hillId], references: [id])
   activity Activity @relation(fields: [activityId], references: [id])
