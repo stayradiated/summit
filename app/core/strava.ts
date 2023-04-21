@@ -2,13 +2,13 @@ import type { Hill, Athlete, Prisma, Activity } from '@prisma/client'
 import { decode as decodePolyline } from '@mapbox/polyline'
 import { errorBoundary } from '@stayradiated/error-boundary'
 import z from 'zod'
-import { mapOrExclude, EXCLUDE } from './map-or-exclude'
+import { mapOrExclude, EXCLUDE } from './utils'
 import {
   newLineString,
   newPoint,
   pointInsideLakeDistrict,
   distanceFromLine,
-} from '~/turf.server'
+} from './turf'
 
 const $StravaActivity = z.object({
   // Resource_state: z.number(),
@@ -138,13 +138,19 @@ const transformStravaActivity = (options: TransformStravaActivityOptions) => {
 }
 
 const isActivityInLakeDistrict = (activity: Activity): boolean => {
-  const startPoint = newPoint([activity.startLatitude, activity.startLongitude])
-  if (pointInsideLakeDistrict(startPoint)) {
+  const startPoint =
+    activity.startLatitude && activity.startLongitude
+      ? newPoint([activity.startLatitude, activity.startLongitude])
+      : undefined
+  if (startPoint && pointInsideLakeDistrict(startPoint)) {
     return true
   }
 
-  const endPoint = newPoint([activity.endLatitude, activity.endLongitude])
-  if (pointInsideLakeDistrict(endPoint)) {
+  const endPoint =
+    activity.endLatitude && activity.endLongitude
+      ? newPoint([activity.endLatitude, activity.endLongitude])
+      : undefined
+  if (endPoint && pointInsideLakeDistrict(endPoint)) {
     return true
   }
 

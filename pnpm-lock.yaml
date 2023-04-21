@@ -35,6 +35,7 @@ specifiers:
   react-dom: 18.2.0
   react-leaflet: 4.2.1
   remix-utils: 6.1.0
+  superjson: 1.12.3
   ts-node: 10.9.1
   typescript: 5.0.4
   xo: 0.54.1
@@ -64,6 +65,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-leaflet: 4.2.1_yydtlhsdonbqao6vgvkwhv2zki
   remix-utils: 6.1.0_ziqor52ky2z5wr42vze5m44ne4
+  superjson: 1.12.3
   zod: 3.21.4
 
 devDependencies:
@@ -3537,6 +3539,13 @@ packages:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
 
+  /copy-anything/3.0.3:
+    resolution: {integrity: sha512-fpW2W/BqEzqPp29QS+MwwfisHCQZtiduTe/m8idFo0xbti9fIZ2WVhAsCv4ggFVH3AgCkVdpoOCtQC6gBrdhjw==}
+    engines: {node: '>=12.13'}
+    dependencies:
+      is-what: 4.1.8
+    dev: false
+
   /core-js-compat/3.30.1:
     resolution: {integrity: sha512-d690npR7MC6P0gq4npTl5n2VQeNAmUrJ90n+MHiKS7W2+xno4o3F5GDEuylSdi6EJ3VssibSGXOa1r3YXD3Mhw==}
     dependencies:
@@ -5932,6 +5941,11 @@ packages:
       call-bind: 1.0.2
       get-intrinsic: 1.2.0
     dev: true
+
+  /is-what/4.1.8:
+    resolution: {integrity: sha512-yq8gMao5upkPoGEU9LsB2P+K3Kt8Q3fQFCGyNCWOAnJAMzEXVV9drYb0TXr42TTliLLhKIBvulgAXgtLLnwzGA==}
+    engines: {node: '>=12.13'}
+    dev: false
 
   /is-windows/1.0.2:
     resolution: {integrity: sha512-eXK1UInq2bPmjyX6e3VHIzMLobc4J94i4AWn+Hpq3OU5KkrRC96OAcR3PRJ/pGu6m8TRnBHP9dkXQVsT/COVIA==}
@@ -8420,6 +8434,13 @@ packages:
     dependencies:
       inline-style-parser: 0.1.1
     dev: true
+
+  /superjson/1.12.3:
+    resolution: {integrity: sha512-0j+U70KUtP8+roVPbwfqkyQI7lBt7ETnuA7KXbTDX3mCKiD/4fXs2ldKSMdt0MCfpTwiMxo20yFU3vu6ewETpQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      copy-anything: 3.0.3
+    dev: false
 
   /supports-color/5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}

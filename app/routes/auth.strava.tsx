@@ -107,7 +107,6 @@ export const loader: LoaderFunction = async ({ request }) => {
   if (dbAthlete instanceof Error) {
     return { errorMessage: dbAthlete.message }
   }
-  console.log(dbAthlete)
 
   const dbSession = await core.createSession({
     athleteId: dbAthlete.id,
@@ -119,7 +118,6 @@ export const loader: LoaderFunction = async ({ request }) => {
   if (dbSession instanceof Error) {
     return { errorMessage: dbSession.message }
   }
-  console.log(dbSession)
 
   const session = await wrapSession(request, dbSession)
 
@@ -131,8 +129,15 @@ export const loader: LoaderFunction = async ({ request }) => {
 export default function route() {
   const { errorMessage } = useLoaderData<LoaderData>()
 
-  return <main>
-    <h1>⚠️ Error</h1>
-    <pre><code>{errorMessage}</code></pre>
-  </main>
+  return (
+    <main>
+      <h1>⚠️ Error</h1>
+      <pre>
+        <code>{errorMessage}</code>
+      </pre>
+      <p>
+        <a href="/">Return to Home Page</a>
+      </p>
+    </main>
+  )
 }

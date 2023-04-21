@@ -11,7 +11,9 @@ import { prisma } from './db.server'
 
 type CreateSessionOptions = Prisma.SessionUncheckedCreateInput
 
-const createSession = (options: CreateSessionOptions): Promise<Session|Error> => {
+const createSession = async (
+  options: CreateSessionOptions,
+): Promise<Session | Error> => {
   return errorBoundary(async () => {
     const session = await prisma.session.create({
       data: options,
@@ -25,7 +27,9 @@ type UpsertAthleteOptions = Omit<
   'id' | 'sessions' | 'activities' | 'following' | 'followedBy'
 >
 
-const upsertAthlete = (options: UpsertAthleteOptions): Promise<Athlete | Error> => {
+const upsertAthlete = async (
+  options: UpsertAthleteOptions,
+): Promise<Athlete | Error> => {
   return errorBoundary(async () => {
     const athlete = await prisma.athlete.upsert({
       create: options,
@@ -103,6 +107,27 @@ const getAthlete = async (
   })
 }
 
+type GetAthleteActivityListOptions = {
+  athleteId: number
+}
+
+const getAthleteActivityList = async (
+  options: GetAthleteActivityListOptions,
+): Promise<ActivityWithAscentList[] | Error> => {
+  const { athleteId } = options
+  return errorBoundary(async () => {
+    const activityList = await prisma.activity.findMany({
+      where: {
+        athleteId,
+      },
+      include: {
+        ascents: true,
+      },
+    })
+    return activityList
+  })
+}
+
 type GetHillOptions = {
   classification: string
 }
@@ -163,6 +188,7 @@ export {
   upsertActivity,
   upsertAscent,
   getAthlete,
+  getAthleteActivityList,
   getHills,
   getActivityWithAscentList,
   getSession,

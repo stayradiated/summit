@@ -1,20 +1,24 @@
-import { useLoaderData } from '@remix-run/react'
 import type { LoaderFunction, LinksFunction } from '@remix-run/node'
-import { json, redirect } from '@remix-run/node'
+import { redirect } from '@remix-run/node'
 import { ClientOnly } from 'remix-utils'
 import leafletStyles from 'leaflet/dist/leaflet.css'
 import type { Hill } from '@prisma/client'
+import { superjson, useSuperLoaderData } from '~/superjson'
 import { getSession } from '~/cookie.server'
 import { ActivityList } from '~/components/activity-list'
 import { Logo } from '~/components/logo'
 import { WainwrightCount } from '~/components/wainwright-count'
 import styles from '~/styles.css'
-import { destroyActivityList } from '~/localstorage'
-import { useHills } from '~/hooks/use-hills'
 import { MyMap } from '~/components/map.client'
 import type { MarkerConfig } from '~/components/map.client'
-import { getAthlete, getHills, HillClassification } from '~/core'
-import { recordFromList } from '~/utils'
+import {
+  getAthlete,
+  getAthleteActivityList,
+  getHills,
+  HillClassification,
+  type ActivityWithAscentList,
+} from '~/core'
+import { recordFromList } from '~/core/utils'
 
 export const links: LinksFunction = () => {
   return [
@@ -30,6 +34,7 @@ type LoaderData = {
     lastName: string
   }
   hillList: Hill[]
+  activityList: ActivityWithAscentList[]
 }
 
 export const loader: LoaderFunction = async ({ request }) => {
@@ -42,19 +47,37 @@ export const loader: LoaderFunction = async ({ request }) => {
   }
 
   const athlete = await getAthlete({ id: session.athleteId })
+  if (athlete instanceof Error) {
+    throw athlete
+  }
 
   const hillList = await getHills({
     classification: HillClassification.Wainwright,
   })
+  if (hillList instanceof Error) {
+    throw hillList
+  }
 
-  return json({ athlete, hillList })
+  const activityList = await getAthleteActivityList({
+    athleteId: athlete.id,
+  })
+  if (activityList instanceof Error) {
+    throw activityList
+  }
+
+  return superjson<LoaderData>({ athlete, hillList, activityList })
 }
 
 export default function route() {
-  const { athlete, hillList } = useLoaderData<LoaderData>()
+  const { athlete, hillList, activityList } = useSuperLoaderData<LoaderData>()
 
-  const { isLoading, fullActivityList, activityList, baggedHillIds } =
-    useHills()
+  const baggedHillIds = [
+    ...new Set(
+      activityList.flatMap((activity) => {
+        return activity.ascents.map((item) => item.hillId)
+      }),
+    ),
+  ]
 
   const hillRecord = recordFromList(hillList, (item) => item.id)
 
@@ -71,10 +94,6 @@ export default function route() {
       return (a.bagged ? 1 : 0) - (b.bagged ? 1 : 0)
     })
 
-  const handleLogout = () => {
-    destroyActivityList()
-  }
-
   return (
     <div>
       <header className="header">
@@ -88,28 +107,17 @@ export default function route() {
             Logged in as {athlete.firstName} {athlete.lastName}.
           </span>
           <form action="/logout" method="post" className="logout-form">
-            <button
-              type="submit"
-              className="logout-button"
-              onClick={handleLogout}
-            >
+            <button type="submit" className="logout-button">
               Logout
             </button>
           </form>
         </div>
       </header>
 
-      {isLoading && (
-        <p className="loading-message">
-          <span className="timer-loader" />
-          Fetching data from Strava...
-        </p>
-      )}
-
       <ClientOnly>
         {() => (
           <>
-            <p>Scanned {fullActivityList.length} activities from Strava.</p>
+            <p>Imported {activityList.length} activities from Strava.</p>
             <WainwrightCount
               baggedHillIds={baggedHillIds}
               totalHillCount={Object.keys(hillRecord).length}

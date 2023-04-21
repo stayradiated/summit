@@ -1,12 +1,10 @@
-import { json } from '@remix-run/node'
-import type { LoaderFunction } from '@remix-run/node'
+import { type Session } from '@prisma/client'
 import pMap from 'p-map'
 import {
   fetchActivityListPage,
   transformStravaActivity,
   processActivity,
-} from '~/strava'
-import { getSession } from '~/cookie.server'
+} from './strava'
 import {
   upsertActivity,
   upsertAscent,
@@ -14,38 +12,34 @@ import {
   getHills,
   getActivityWithAscentList,
   HillClassification,
-} from '~/core'
+} from './index'
 
-export const loader: LoaderFunction = async ({ request }) => {
-  const session = await getSession(request)
-  if (!session.isValid) {
-    throw session.error
-  }
+type ImportActivitiesOptions = {
+  session: Session
+  page: number
+  perPage: number
+}
 
+const importActivities = async (
+  options: ImportActivitiesOptions,
+): Promise<void | Error> => {
+  const { session, page, perPage } = options
   const { accessToken } = session
+
+  if (perPage > 100) {
+    return new Error('per_page must be <= 100')
+  }
 
   const athlete = await getAthlete({ id: session.athleteId })
   if (athlete instanceof Error) {
-    throw athlete
+    return athlete
   }
 
   const hillList = await getHills({
     classification: HillClassification.Wainwright,
   })
   if (hillList instanceof Error) {
-    throw hillList
-  }
-
-  const page = Number.parseInt(
-    new URL(request.url).searchParams.get('page') ?? '1',
-    10,
-  )
-  const perPage = Number.parseInt(
-    new URL(request.url).searchParams.get('per_page') ?? '30',
-    10,
-  )
-  if (perPage > 100) {
-    throw new Error('per_page must be <= 100')
+    return hillList
   }
 
   const stravaActvityList = await fetchActivityListPage({
@@ -54,7 +48,7 @@ export const loader: LoaderFunction = async ({ request }) => {
     page,
   })
   if (stravaActvityList instanceof Error) {
-    throw stravaActvityList
+    return stravaActvityList
   }
 
   const activityList = await pMap(
@@ -78,13 +72,9 @@ export const loader: LoaderFunction = async ({ request }) => {
         },
         { concurrency: 1 },
       )
-
-      return getActivityWithAscentList({
-        id: activity.id,
-      })
     },
     { concurrency: 1 },
   )
-
-  return json(activityList)
 }
+
+export { importActivities }

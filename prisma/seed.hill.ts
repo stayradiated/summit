@@ -486,7 +486,7 @@ const hillList: Prisma.HillCreateInput[] = [
   },
   {
     remoteId: '2610',
-    name: 'Gowbarrow Fell (Wainwright summit)',
+    name: 'Gowbarrow Fell',
     area: 'Eastern Fells',
     county: 'Cumbria',
     country: 'England',
@@ -1331,7 +1331,7 @@ const hillList: Prisma.HillCreateInput[] = [
   },
   {
     remoteId: '2582',
-    name: 'Brock Crags (Wainwright)',
+    name: 'Brock Crags',
     area: 'Far Eastern Fells',
     county: 'Cumbria',
     country: 'England',
@@ -1939,7 +1939,7 @@ const hillList: Prisma.HillCreateInput[] = [
   },
   {
     remoteId: '2456',
-    name: 'Seathwaite Fell (Wainwright summit)',
+    name: 'Seathwaite Fell',
     area: 'Southern Fells',
     county: 'Cumbria',
     country: 'England',
