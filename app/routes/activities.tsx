@@ -3,16 +3,18 @@ import type { LoaderFunction, LinksFunction } from '@remix-run/node'
 import { json, redirect } from '@remix-run/node'
 import { ClientOnly } from 'remix-utils'
 import leafletStyles from 'leaflet/dist/leaflet.css'
-import { getSession, destroySessionHeaders } from '~/cookie.server'
+import type { Hill } from '@prisma/client'
+import { getSession } from '~/cookie.server'
 import { ActivityList } from '~/components/activity-list'
 import { Logo } from '~/components/logo'
 import { WainwrightCount } from '~/components/wainwright-count'
-import type { Wainwright } from '~/data'
-import { wainwrightList, wainwrightRecord } from '~/data'
 import styles from '~/styles.css'
 import { destroyActivityList } from '~/localstorage'
-import { useWainwrights } from '~/hooks/use-wainwrights'
+import { useHills } from '~/hooks/use-hills'
 import { MyMap } from '~/components/map.client'
+import type { MarkerConfig } from '~/components/map.client'
+import { getAthlete, getHills, HillClassification } from '~/core'
+import { recordFromList } from '~/utils'
 
 export const links: LinksFunction = () => {
   return [
@@ -27,40 +29,47 @@ type LoaderData = {
     firstName: string
     lastName: string
   }
-  wainwrightRecord: Record<string, Wainwright>
+  hillList: Hill[]
 }
 
 export const loader: LoaderFunction = async ({ request }) => {
   const session = await getSession(request)
-  const athlete = session.get('athlete')
-  const accessToken = session.get('accessToken')
-  if (!athlete || !accessToken) {
+  console.log(session)
+  if (!session.isValid) {
     return redirect('/', {
-      headers: await destroySessionHeaders(session),
+      headers: await session.destroyHeaders(),
     })
   }
 
-  return json({ athlete, wainwrightRecord })
+  const athlete = await getAthlete({ id: session.athleteId })
+
+  const hillList = await getHills({
+    classification: HillClassification.Wainwright,
+  })
+
+  return json({ athlete, hillList })
 }
 
 export default function route() {
-  const { athlete, wainwrightRecord } = useLoaderData<LoaderData>()
+  const { athlete, hillList } = useLoaderData<LoaderData>()
 
-  const { isLoading, fullActivityList, activityList, baggedWainwrightIds } =
-    useWainwrights()
+  const { isLoading, fullActivityList, activityList, baggedHillIds } =
+    useHills()
 
-  const wainwrightMarkers = wainwrightList
-    .map((wainwright) => ({
-      title: `${wainwright.name} (${wainwright.area})`,
-      position: wainwright.coords,
-      area: wainwright.area,
-      bagged: baggedWainwrightIds.includes(wainwright.id),
-    }))
+  const hillRecord = recordFromList(hillList, (item) => item.id)
+
+  const hillMarkers = hillList
+    .map(
+      (hill): MarkerConfig => ({
+        title: `${hill.name} (${hill.area})`,
+        area: hill.area,
+        position: [hill.latitude, hill.longitude],
+        bagged: baggedHillIds.includes(hill.id),
+      }),
+    )
     .sort((a, b) => {
       return (a.bagged ? 1 : 0) - (b.bagged ? 1 : 0)
     })
-
-  console.log({ wainwrightMarkers })
 
   const handleLogout = () => {
     destroyActivityList()
@@ -101,15 +110,15 @@ export default function route() {
         {() => (
           <>
             <p>Scanned {fullActivityList.length} activities from Strava.</p>
-            <WainwrightCount wainwrights={baggedWainwrightIds} />
+            <WainwrightCount
+              baggedHillIds={baggedHillIds}
+              totalHillCount={Object.keys(hillRecord).length}
+            />
 
             <h3>Map</h3>
-            <MyMap markers={wainwrightMarkers} />
+            <MyMap markers={hillMarkers} />
 
-            <ActivityList
-              activities={activityList}
-              wainwrightRecord={wainwrightRecord}
-            />
+            <ActivityList activities={activityList} hillRecord={hillRecord} />
           </>
         )}
       </ClientOnly>

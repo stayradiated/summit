@@ -1,12 +1,14 @@
+import type { Activity } from '@prisma/client'
 import { errorBoundarySync } from '@stayradiated/error-boundary'
-import { useReducer, type Reducer, useEffect } from 'react'
-import type { Activity } from './strava'
+import { useReducer, useEffect } from 'react'
+import type { Reducer } from 'react'
 import { recordFromList } from '~/utils'
+import type { ActivityWithAscentList } from '~/core/index.js'
 
 const LS_KEY = 'summit_activity'
 
 type Store = {
-  activityRecord: Record<string, Activity>
+  activityRecord: Record<string, ActivityWithAscentList>
   activityIds: number[]
 }
 
@@ -51,7 +53,7 @@ type FetchStartAction = {
 type FetchEndAction = {
   type: 'FETCH_END'
   page: number
-  data: Activity[]
+  data: ActivityWithAscentList[]
 }
 
 type NextPageAction = {
@@ -77,13 +79,13 @@ const fetchPage = async (
   url.searchParams.set('page', String(pageId))
   url.searchParams.set('per_page', String(perPage))
   const response = await fetch(url, { signal })
-  const data = (await response.json()) as Activity[]
+  const data = (await response.json()) as ActivityWithAscentList[]
   return data
 }
 
 const countUnseenActivities = (
   store: Store,
-  incomingActivities: Activity[],
+  incomingActivities: ActivityWithAscentList[],
 ): number => {
   const incomingActivityIds = incomingActivities.map(getId)
   return incomingActivityIds.filter((activityId) => {

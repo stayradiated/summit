@@ -1,21 +1,22 @@
 import { useActivityCache } from '~/localstorage'
-import type { RelevantActivity } from '~/strava'
 
-const useWainwrights = () => {
+const useHills = () => {
   const { store, isLoading } = useActivityCache()
+
+  console.log(store)
 
   const fullActivityList = store.activityIds.map(
     (id) => store.activityRecord[id],
   )
 
   const activityList = fullActivityList.filter(
-    (item): item is RelevantActivity => item.isRelevant,
+    (item) => item.ascents.length > 0,
   )
 
-  const baggedWainwrightIds = [
+  const baggedHillIds = [
     ...new Set(
       activityList.flatMap((activity) => {
-        return activity.wainwrightIds
+        return activity.ascents.map((item) => item.hillId)
       }),
     ),
   ]
@@ -24,8 +25,8 @@ const useWainwrights = () => {
     isLoading,
     fullActivityList,
     activityList,
-    baggedWainwrightIds,
+    baggedHillIds,
   }
 }
 
-export { useWainwrights }
+export { useHills }

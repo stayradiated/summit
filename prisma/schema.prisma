@@ -1,0 +1,86 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id                   Int      @id @default(autoincrement())
+  athleteId            Int
+  accessToken          String
+  accessTokenExpiresAt DateTime
+  refreshToken         String
+  scope                String
+
+  athlete Athlete @relation(fields: [athleteId], references: [id])
+}
+
+model Athlete {
+  id        Int    @id @default(autoincrement())
+  remoteId  String @unique
+  username  String @unique
+  firstName String
+  lastName  String
+
+  activities Activity[]
+  sessions   Session[]
+  following  Athlete[]  @relation("Athlete_follows")
+  followedBy Athlete[]  @relation("Athlete_follows")
+}
+
+model Activity {
+  id        Int    @id @default(autoincrement())
+  remoteId  String @unique
+  athleteId Int
+
+  name      String
+  type      String
+  distance  Float
+  startDate DateTime
+
+  route String
+
+  startLatitude  Float
+  startLongitude Float
+  endLatitude    Float
+  endLongitude   Float
+
+  ascents Ascent[]
+
+  athlete Athlete @relation(fields: [athleteId], references: [id])
+}
+
+model Hill {
+  id             Int    @id @default(autoincrement())
+  remoteId       String @unique
+  name           String
+  area           String
+  county         String
+  country        String
+  classification String
+  height         Float
+  latitude       Float
+  longitude      Float
+  notes          String
+
+  ascents Ascent[]
+}
+
+model Ascent {
+  hillId     Int
+  activityId Int
+
+  index    Int
+  distance Float
+
+  hill     Hill     @relation(fields: [hillId], references: [id])
+  activity Activity @relation(fields: [activityId], references: [id])
+
+  @@id([hillId, activityId])
+}

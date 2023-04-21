@@ -1,3 +1,4 @@
+import type { Hill, Athlete, Prisma, Activity } from '@prisma/client'
 import { decode as decodePolyline } from '@mapbox/polyline'
 import { errorBoundary } from '@stayradiated/error-boundary'
 import z from 'zod'
@@ -8,7 +9,6 @@ import {
   pointInsideLakeDistrict,
   distanceFromLine,
 } from '~/turf.server'
-import { wainwrightList, wainwrightRecord, Wainwright } from '~/data'
 
 const $StravaActivity = z.object({
   // Resource_state: z.number(),
@@ -109,71 +109,83 @@ const fetchActivityListPage = async (
   })
 }
 
-const isActivityInLakeDistrict = (activity: StravaActivity): boolean => {
-  const startPoint =
-    activity.start_latlng.length >= 2
-      ? newPoint(activity.start_latlng)
-      : undefined
-  if (startPoint && pointInsideLakeDistrict(startPoint)) {
+type TransformStravaActivityOptions = {
+  athlete: Athlete
+  stravaActivity: StravaActivity
+}
+
+const transformStravaActivity = (options: TransformStravaActivityOptions) => {
+  const { athlete, stravaActivity } = options
+
+  const activity = {
+    athleteId: athlete.id,
+
+    remoteId: String(stravaActivity.id),
+    name: stravaActivity.name,
+    type: stravaActivity.type,
+    startDate: new Date(stravaActivity.start_date),
+    distance: stravaActivity.distance,
+
+    route: stravaActivity.map.summary_polyline,
+
+    startLatitude: stravaActivity.start_latlng[0],
+    startLongitude: stravaActivity.start_latlng[1],
+    endLatitude: stravaActivity.end_latlng[0],
+    endLongitude: stravaActivity.end_latlng[1],
+  }
+
+  return activity
+}
+
+const isActivityInLakeDistrict = (activity: Activity): boolean => {
+  const startPoint = newPoint([activity.startLatitude, activity.startLongitude])
+  if (pointInsideLakeDistrict(startPoint)) {
     return true
   }
 
-  const endPoint =
-    activity.end_latlng.length >= 2 ? newPoint(activity.end_latlng) : undefined
-  if (endPoint && pointInsideLakeDistrict(endPoint)) {
+  const endPoint = newPoint([activity.endLatitude, activity.endLongitude])
+  if (pointInsideLakeDistrict(endPoint)) {
     return true
   }
 
   return false
 }
 
-type IrrelevantActivity = {
-  id: number
-  isRelevant: false
+type ProcessActivityOptions = {
+  activity: Activity
+  hillList: Hill[]
 }
 
-type RelevantActivity = {
-  id: number
-  isRelevant: true
-  name: string
-  type: string
-  date: string
-  wainwrightIds: number[]
-}
+const processActivity = (
+  options: ProcessActivityOptions,
+): Prisma.AscentUncheckedCreateInput[] => {
+  const { activity, hillList } = options
 
-type Activity = IrrelevantActivity | RelevantActivity
+  let ascents: Prisma.AscentUncheckedCreateInput[] = []
+  if (isActivityInLakeDistrict(activity)) {
+    const activityTrack = newLineString(decodePolyline(activity.route))
 
-const processActivity = (activity: StravaActivity): Activity => {
-  if (!isActivityInLakeDistrict(activity)) {
-    return { id: activity.id, isRelevant: false }
+    ascents = mapOrExclude(hillList, (hill) => {
+      const { distance, index } = distanceFromLine(
+        activityTrack,
+        newPoint([hill.latitude, hill.longitude]),
+      )
+
+      // Must be within 70m of the summit to bag
+      if (distance > 0.07) {
+        return EXCLUDE
+      }
+
+      return {
+        index,
+        distance,
+        hillId: hill.id,
+        activityId: activity.id,
+      }
+    })
   }
 
-  const activityTrack = newLineString(
-    decodePolyline(activity.map.summary_polyline),
-  )
-
-  const wainwrightIds = mapOrExclude(wainwrightList, (wainwright) => {
-    const distance = distanceFromLine(
-      activityTrack,
-      newPoint(wainwright.coords),
-    )
-
-    if (distance > 0.05) {
-      return EXCLUDE
-    }
-
-    return wainwright.id
-  })
-
-  return {
-    id: activity.id,
-    isRelevant: true,
-    name: activity.name,
-    type: activity.type,
-    date: activity.start_date,
-    wainwrightIds,
-  }
+  return ascents
 }
 
-export { fetchActivityListPage, processActivity }
-export type { IrrelevantActivity, RelevantActivity, Activity }
+export { fetchActivityListPage, transformStravaActivity, processActivity }

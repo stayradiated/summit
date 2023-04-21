@@ -12,7 +12,7 @@ type LoaderData = Record<string, unknown>
 
 export const loader: LoaderFunction = async ({ request }) => {
   const session = await getSession(request)
-  if (!session.has('accessToken')) {
+  if (!session.isValid) {
     return json<LoaderData>({})
   }
 

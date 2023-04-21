@@ -1,13 +1,39 @@
 import { json } from '@remix-run/node'
 import type { LoaderFunction } from '@remix-run/node'
-import { fetchActivityListPage, processActivity } from '~/strava'
+import pMap from 'p-map'
+import {
+  fetchActivityListPage,
+  transformStravaActivity,
+  processActivity,
+} from '~/strava'
 import { getSession } from '~/cookie.server'
+import {
+  upsertActivity,
+  upsertAscent,
+  getAthlete,
+  getHills,
+  getActivityWithAscentList,
+  HillClassification,
+} from '~/core'
 
 export const loader: LoaderFunction = async ({ request }) => {
   const session = await getSession(request)
-  const accessToken = session.get('accessToken')
-  if (!accessToken) {
-    throw new Error('Not authenticated!')
+  if (!session.isValid) {
+    throw session.error
+  }
+
+  const { accessToken } = session
+
+  const athlete = await getAthlete({ id: session.athleteId })
+  if (athlete instanceof Error) {
+    throw athlete
+  }
+
+  const hillList = await getHills({
+    classification: HillClassification.Wainwright,
+  })
+  if (hillList instanceof Error) {
+    throw hillList
   }
 
   const page = Number.parseInt(
@@ -22,18 +48,43 @@ export const loader: LoaderFunction = async ({ request }) => {
     throw new Error('per_page must be <= 100')
   }
 
-  const activityList = await fetchActivityListPage({
+  const stravaActvityList = await fetchActivityListPage({
     accessToken,
     perPage,
     page,
   })
-  if (activityList instanceof Error) {
-    throw activityList
+  if (stravaActvityList instanceof Error) {
+    throw stravaActvityList
   }
 
-  return json(
-    activityList.map((activity) => {
-      return processActivity(activity)
-    }),
+  const activityList = await pMap(
+    stravaActvityList,
+    async (stravaActivity) => {
+      const activity = await upsertActivity(
+        transformStravaActivity({
+          athlete,
+          stravaActivity,
+        }),
+      )
+
+      const ascentList = processActivity({
+        activity,
+        hillList,
+      })
+      await pMap(
+        ascentList,
+        async (ascent) => {
+          return upsertAscent(ascent)
+        },
+        { concurrency: 1 },
+      )
+
+      return getActivityWithAscentList({
+        id: activity.id,
+      })
+    },
+    { concurrency: 1 },
   )
+
+  return json(activityList)
 }

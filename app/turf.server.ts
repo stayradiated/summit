@@ -30,9 +30,18 @@ const pointInsideLakeDistrict = (point: Point): boolean => {
   return booleanPointInPolygon(point, LAKE_DISTRICT_GEOMETRY)
 }
 
-const distanceFromLine = (line: LineString, point: Point): number => {
+const distanceFromLine = (
+  line: LineString,
+  point: Point,
+): {
+  index: number
+  distance: number
+} => {
   const result = nearestPointOnLine(line, point)
-  return result.properties.dist ?? Number.POSITIVE_INFINITY
+  return {
+    index: result.properties.index ?? -1,
+    distance: result.properties.dist ?? Number.POSITIVE_INFINITY,
+  }
 }
 
 export { newPoint, newLineString, pointInsideLakeDistrict, distanceFromLine }

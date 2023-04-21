@@ -5,10 +5,15 @@
     "build": "tsc --noEmit",
     "package": "rm -rf dist && remix build && node ./scripts/build.mjs",
     "dev": "remix dev",
-    "tidy": "xo --fix --plugin=react ./app"
+    "tidy": "xo --fix --plugin=react ./app ./prisma",
+    "prisma": "prisma"
+  },
+  "prisma": {
+    "seed": "ts-node --esm --swc ./prisma/seed.ts"
   },
   "dependencies": {
     "@mapbox/polyline": "1.2.0",
+    "@prisma/client": "4.13.0",
     "@react-leaflet/core": "2.1.0",
     "@remix-run/express": "1.15.0",
     "@remix-run/node": "1.15.0",
@@ -21,10 +26,11 @@
     "compression": "1.7.4",
     "date-fns": "2.29.3",
     "express": "4.18.2",
-    "isbot": "3.6.8",
+    "isbot": "3.6.10",
     "leaflet": "1.9.3",
     "morgan": "1.10.0",
     "p-map": "5.5.0",
+    "prisma": "4.13.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-leaflet": "4.2.1",
@@ -35,13 +41,15 @@
     "@remix-run/dev": "1.15.0",
     "@remix-run/eslint-config": "1.15.0",
     "@remix-run/serve": "1.15.0",
+    "@swc/core": "1.3.53",
     "@types/leaflet": "1.9.3",
     "@types/mapbox__polyline": "1.0.2",
-    "@types/node": "18.15.11",
+    "@types/node": "18.15.13",
     "@types/react": "18.0.37",
     "@types/react-dom": "18.0.11",
     "@vercel/ncc": "0.36.1",
     "eslint": "8.38.0",
+    "ts-node": "10.9.1",
     "typescript": "5.0.4",
     "xo": "0.54.1"
   },
