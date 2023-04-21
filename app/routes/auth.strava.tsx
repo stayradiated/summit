@@ -104,6 +104,9 @@ export const loader: LoaderFunction = async ({ request }) => {
     firstName: responseJson.athlete.firstname,
     lastName: responseJson.athlete.lastname,
   })
+  if (dbAthlete instanceof Error) {
+    return { errorMessage: dbAthlete.message }
+  }
   console.log(dbAthlete)
 
   const dbSession = await core.createSession({
@@ -113,6 +116,9 @@ export const loader: LoaderFunction = async ({ request }) => {
     accessTokenExpiresAt: fromUnixTime(responseJson.expires_at),
     scope,
   })
+  if (dbSession instanceof Error) {
+    return { errorMessage: dbSession.message }
+  }
   console.log(dbSession)
 
   const session = await wrapSession(request, dbSession)
@@ -125,5 +131,8 @@ export const loader: LoaderFunction = async ({ request }) => {
 export default function route() {
   const { errorMessage } = useLoaderData<LoaderData>()
 
-  return <h1>⚠️ {errorMessage} ⚠️</h1>
+  return <main>
+    <h1>⚠️ Error</h1>
+    <pre><code>{errorMessage}</code></pre>
+  </main>
 }

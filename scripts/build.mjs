@@ -33,3 +33,25 @@ for (const asset of Object.keys(assets)) {
   })
 }
 
+// cp ../prisma/schema.prisma ./dist
+const prismaSchemaPath = path.join(
+  projectPath,
+  "./prisma/schema.prisma",
+)
+const prismaSchemaDistPath = path.join(distPath, "./schema.prisma")
+console.log(`+ ${prismaSchemaPath}`)
+await fs.copyFile(prismaSchemaPath, prismaSchemaDistPath)
+
+// cp ../node_modules/.pnpm/@prisma+client@4.13.0_prisma@4.13.0/node_modules/@prisma/client ./dist
+const prismaGeneratedPath = path.join(projectPath, "./node_modules/.pnpm/@prisma+client@4.13.0_prisma@4.13.0/node_modules/.prisma/client")
+const prismaGeneratedFileList = await fs.readdir(prismaGeneratedPath, {
+  withFileTypes: true,
+})
+for (const file of prismaGeneratedFileList) {
+  if (file.isFile() && file.name.endsWith(".node")) {
+    const prismaEnginePath = path.join(prismaGeneratedPath, file.name)
+    const prismaEngineDistPath = path.join(distPath, file.name)
+    console.log(`+ ${prismaEnginePath}`)
+    await fs.copyFile(prismaEnginePath, prismaEngineDistPath)
+  }
+}

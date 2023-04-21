@@ -11,11 +11,13 @@ import { prisma } from './db.server'
 
 type CreateSessionOptions = Prisma.SessionUncheckedCreateInput
 
-const createSession = async (options: CreateSessionOptions) => {
-  const session = await prisma.session.create({
-    data: options,
+const createSession = (options: CreateSessionOptions): Promise<Session|Error> => {
+  return errorBoundary(async () => {
+    const session = await prisma.session.create({
+      data: options,
+    })
+    return session
   })
-  return session
 }
 
 type UpsertAthleteOptions = Omit<
@@ -23,15 +25,17 @@ type UpsertAthleteOptions = Omit<
   'id' | 'sessions' | 'activities' | 'following' | 'followedBy'
 >
 
-const upsertAthlete = async (options: UpsertAthleteOptions) => {
-  const athlete = await prisma.athlete.upsert({
-    create: options,
-    update: options,
-    where: {
-      remoteId: options.remoteId,
-    },
+const upsertAthlete = (options: UpsertAthleteOptions): Promise<Athlete | Error> => {
+  return errorBoundary(async () => {
+    const athlete = await prisma.athlete.upsert({
+      create: options,
+      update: options,
+      where: {
+        remoteId: options.remoteId,
+      },
+    })
+    return athlete
   })
-  return athlete
 }
 
 type UpsertActivityOptions = Omit<Prisma.ActivityUncheckedCreateInput, 'id'>
